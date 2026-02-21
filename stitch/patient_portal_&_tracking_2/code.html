@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mandeep Homeo Clinic - Resources &amp; Care Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#19e65e",
+                        "primary-dark": "#12a844",
+                        "primary-light": "#d1fae0",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#112116",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2e22",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"],
+                        "body": ["Lexend", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem", 
+                        "lg": "0.5rem", 
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #19e65e;
+            cursor: pointer;
+            margin-top: -10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #e5e7eb;
+            border-radius: 2px;
+        }
+        .dark input[type=range]::-webkit-slider-runnable-track {
+            background: #374151;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+          min-height: max(884px, 100dvh);
+        }
+        .blur-overlay {
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased min-h-screen flex flex-col">
+<header class="sticky top-0 z-50 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800 px-4 pt-12 pb-4 shadow-sm transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="h-10 w-10 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden ring-2 ring-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-gray-400">person</span>
+</div>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-tight">Resources &amp; Care</h1>
+<p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Guest Mode • <a class="text-primary hover:underline font-bold" href="#">Sign In</a></p>
+</div>
+</div>
+<button class="flex items-center justify-center h-10 w-10 rounded-full bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors relative">
+<span class="material-symbols-outlined text-[24px]">search</span>
+</button>
+</div>
+</header>
+<main class="flex-1 px-4 py-6 pb-24 space-y-8 max-w-lg mx-auto w-full">
+<section class="bg-primary-light/30 dark:bg-primary/5 rounded-xl p-5 border border-primary/10 flex items-center justify-between gap-4">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-2 text-primary-dark dark:text-primary">
+<span class="material-symbols-outlined text-[20px]">self_improvement</span>
+<span class="text-xs font-bold uppercase tracking-wider">Free Wellness Audio</span>
+</div>
+<h3 class="font-bold text-lg leading-tight mb-1">Evening Calm</h3>
+<p class="text-xs text-gray-600 dark:text-gray-400 mb-0">Guided meditation for better sleep.</p>
+</div>
+<button class="h-12 w-12 rounded-full bg-primary text-slate-900 flex items-center justify-center shadow-lg shadow-primary/20 active:scale-95 transition-transform shrink-0">
+<span class="material-symbols-outlined text-[28px] ml-1">play_arrow</span>
+</button>
+</section>
+<section>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Public Guides</h3>
+<a class="text-xs font-semibold text-primary hover:underline" href="#">View Library</a>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-lg border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
+<div class="h-10 w-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mb-3 text-orange-600 dark:text-orange-400">
+<span class="material-symbols-outlined">restaurant_menu</span>
+</div>
+<h4 class="font-bold text-sm mb-1 group-hover:text-primary transition-colors">Nutrition Basics</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 mb-3 line-clamp-2">Gut-friendly recipes for sensitive digestion.</p>
+<div class="flex items-center gap-1 text-[10px] font-bold text-gray-400 uppercase tracking-wide">
+<span class="material-symbols-outlined text-[14px]">picture_as_pdf</span>
+                        PDF Plan
+                    </div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-lg border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
+<div class="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-3 text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined">water_drop</span>
+</div>
+<h4 class="font-bold text-sm mb-1 group-hover:text-primary transition-colors">Hydration Guide</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 mb-3 line-clamp-2">Daily water intake chart for kids.</p>
+<div class="flex items-center gap-1 text-[10px] font-bold text-gray-400 uppercase tracking-wide">
+<span class="material-symbols-outlined text-[14px]">picture_as_pdf</span>
+                        PDF Guide
+                    </div>
+</div>
+</div>
+</section>
+<section class="relative bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
+<div class="absolute inset-0 z-10 blur-overlay bg-surface-light/60 dark:bg-surface-dark/60 flex flex-col items-center justify-center text-center p-6">
+<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-full shadow-lg mb-3">
+<span class="material-symbols-outlined text-primary text-[32px]">lock</span>
+</div>
+<h3 class="font-bold text-lg mb-1">Patient Care Tracking</h3>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-4 max-w-[240px]">Sign in to access your personalized 15-day progress tracker.</p>
+<button class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold py-2.5 px-6 rounded-full shadow-lg hover:opacity-90 transition-opacity">
+                    Sign In to Clinic Portal
+                </button>
+</div>
+<div class="p-4 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center bg-primary/5 dark:bg-primary/10 opacity-50">
+<div>
+<h2 class="font-bold text-lg">Daily Progress Log</h2>
+<p class="text-xs text-gray-500 dark:text-gray-400">Day 4 of 15</p>
+</div>
+<div class="flex gap-1">
+<div class="h-2 w-2 rounded-full bg-primary"></div>
+<div class="h-2 w-2 rounded-full bg-primary"></div>
+<div class="h-2 w-2 rounded-full bg-primary"></div>
+</div>
+</div>
+<div class="p-5 space-y-6 opacity-40 pointer-events-none">
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<label class="text-sm font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">psychology</span>
+                            Behavioral Calmness
+                        </label>
+<span class="text-lg font-bold text-primary">7<span class="text-xs text-gray-400 font-normal">/10</span></span>
+</div>
+<input class="w-full" max="10" min="1" type="range" value="7"/>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<label class="text-sm font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">record_voice_over</span>
+                            Speech Clarity
+                        </label>
+<span class="text-lg font-bold text-primary">5<span class="text-xs text-gray-400 font-normal">/10</span></span>
+</div>
+<input class="w-full" max="10" min="1" type="range" value="5"/>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Instructional Guides</h3>
+<a class="text-xs font-semibold text-gray-400 cursor-not-allowed" href="#">More (Login Required)</a>
+</div>
+<div class="flex overflow-x-auto gap-4 pb-2 -mx-4 px-4 no-scrollbar snap-x">
+<div class="min-w-[240px] snap-center bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm">
+<div class="relative h-32 bg-gray-200 w-full group cursor-pointer">
+<img alt="Child playing with colorful blocks" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIjkZ9UUnO0zSmZJ8af9FAILbURYDV_66AW_SHhOdSu0aqGYkz2KJxEHahXgb8E0hF-19YvcuodTNCr8roIUsDNk1q4QcsIaXLcNdB9U9pTfhUATapiLY19HLR5lOfsVqBBmwG9-dtaRUFvh6cKYjSiOXFYiWNSK0DJ7tGEdOCU3EiUIbs7PU7bG5WR53XSw2JBXED73XMvLzJMGn6eYLl8uQyytmkuXxKnCeJqHFRanQqlouddWgrrfejj5kfz1Iz-x-klPOh_g8"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+<div class="h-10 w-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm">
+<span class="material-symbols-outlined text-primary text-[24px] ml-1">play_arrow</span>
+</div>
+</div>
+<div class="absolute top-2 left-2 bg-green-500 text-white text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-wide">Free Preview</div>
+<div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-1.5 py-0.5 rounded font-medium">05:24</div>
+</div>
+<div class="p-3">
+<h4 class="font-bold text-sm mb-1">Fine Motor Skills</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400">Occupational Therapy basics.</p>
+</div>
+</div>
+<div class="min-w-[240px] snap-center bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm relative">
+<div class="relative h-32 bg-gray-200 w-full opacity-50">
+<img alt="Mother and child reading a book together" class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXkt62ECnHYzqmQ7Oh5YgQEk-rEQcNHro-yvNWe5ZEj4Up_hrcTSkAUHrCoZ3Y8NmOFFF4pBaDOAz9ujQ5useTEEeb1nziieNFSIf5qP9jcQKUKJHdATDv-8JtwXVFtLcGHpkI1A7i3LQnHX51NGTg7QodkcHbi0IS8ltAfNMbRYzYzIX7ayarZseGMBSQsxLhLBBZsOk7a2RWBreUsrnhKI71pgwWI4kKjDpizrql2zTk58Lv42QrNdIZRYLLWhUgCPVWJ_OGiGQ"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-800 dark:text-white text-[32px]">lock</span>
+</div>
+</div>
+<div class="p-3 bg-gray-50 dark:bg-surface-dark">
+<h4 class="font-bold text-sm mb-1 text-gray-500">Advanced Speech Exercises</h4>
+<p class="text-xs text-gray-400 dark:text-gray-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">lock</span> Patient Access Only
+                        </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 w-full bg-surface-light dark:bg-surface-dark border-t border-gray-100 dark:border-gray-800 z-50 safe-area-bottom">
+<div class="flex justify-around items-center h-16 max-w-lg mx-auto">
+<a class="flex flex-col items-center justify-center w-full h-full text-primary gap-1 group" href="#">
+<div class="flex items-center justify-center h-7 rounded-full px-4 bg-primary/10 group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[24px] font-variation-settings-'FILL'1">menu_book</span>
+</div>
+<span class="text-[10px] font-medium">Resources</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 gap-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">calendar_month</span>
+<span class="text-[10px] font-medium">Appts</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 gap-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">chat_bubble</span>
+<span class="text-[10px] font-medium">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 gap-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">login</span>
+<span class="text-[10px] font-medium">Sign In</span>
+</a>
+</div>
+</nav>
+<div class="h-6 bg-surface-light dark:bg-surface-dark w-full fixed bottom-0 z-40"></div>
+
+</body></html>

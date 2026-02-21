@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#19e65e"/>
+      <stop offset="100%" stop-color="#0ea641"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="102.4" fill="url(#bg)"/>
+  <rect x="225.28" y="102.4" width="61.44" height="194.56" rx="15.36" fill="white"/>
+  <rect x="102.4" y="163.84" width="194.56" height="61.44" rx="15.36" fill="white" opacity="0.95"/>
+  <text x="256" y="399.36" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="92.16" fill="white" opacity="0.9">M</text>
+</svg>
