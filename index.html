@@ -88,6 +88,8 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
 .soft-pulse { animation: softPulse 3s ease-in-out infinite; }
 /* Warm gradient text */
 .text-gradient-warm { background: linear-gradient(135deg, #7B6CA8, #E8937A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+/* Extra top padding for wellness pages (sub-nav offset) */
+.wellness-page-offset { padding-top: 48px; }
 </style>
 </head>
 
@@ -183,9 +185,9 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
         <div class="w-11 h-11 rounded-xl bg-warm-blue-light flex items-center justify-center group-hover:bg-warm-blue/15 transition-colors"><span class="material-symbols-outlined text-warm-blue text-[24px]">person_check</span></div>
         <div><h4 class="font-bold text-sm text-text-main" data-i18n="quick.about">About Doctor</h4><p class="text-[11px] text-text-sub mt-0.5" data-i18n="quick.about.sub">Experience & Bio</p></div>
       </button>
-      <button onclick="navigateTo('resources')" class="group bg-white p-4 rounded-2xl shadow-card border border-purple-50 hover:border-warm-gold/30 hover:shadow-glow transition-all duration-300 flex flex-col gap-3 text-left">
-        <div class="w-11 h-11 rounded-xl bg-warm-gold-light flex items-center justify-center group-hover:bg-warm-gold/15 transition-colors"><span class="material-symbols-outlined text-warm-gold text-[24px]">emoji_objects</span></div>
-        <div><h4 class="font-bold text-sm text-text-main" data-i18n="quick.resources">Resources</h4><p class="text-[11px] text-text-sub mt-0.5" data-i18n="quick.resources.sub">Guides & FAQs</p></div>
+      <button onclick="navigateTo('feel')" class="group bg-white p-4 rounded-2xl shadow-card border border-purple-50 hover:border-warm-gold/30 hover:shadow-glow transition-all duration-300 flex flex-col gap-3 text-left">
+        <div class="w-11 h-11 rounded-xl bg-warm-gold-light flex items-center justify-center group-hover:bg-warm-gold/15 transition-colors"><span class="material-symbols-outlined text-warm-gold text-[24px]">mood</span></div>
+        <div><h4 class="font-bold text-sm text-text-main" data-i18n="quick.resources">Wellness</h4><p class="text-[11px] text-text-sub mt-0.5" data-i18n="quick.resources.sub">Check-in & Tools</p></div>
       </button>
       <button onclick="navigateTo('welfare')" class="group bg-white p-4 rounded-2xl shadow-card border border-purple-50 hover:border-warm-coral/30 hover:shadow-glow transition-all duration-300 flex flex-col gap-3 text-left">
         <div class="w-11 h-11 rounded-xl bg-warm-coral-light flex items-center justify-center group-hover:bg-warm-coral/15 transition-colors"><span class="material-symbols-outlined text-warm-coral text-[24px]">favorite</span></div>
@@ -562,70 +564,150 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
   </section>
 </div>
 
-<!-- ===================== PAGE 4: PATIENT PORTAL & TRACKING ===================== -->
-<div id="page-resources" class="page">
+<!-- ===================== PAGE 4: FEEL - EMOTIONAL CHECK-IN ===================== -->
+<div id="page-feel" class="page wellness-page-offset">
   <section class="px-4 py-6 space-y-8">
-    <!-- Emotional Wellness Check-in (How We Feel inspired) -->
-    <div class="bg-white rounded-2xl shadow-card border border-purple-50 overflow-hidden">
-      <div class="p-5 border-b border-purple-50 bg-gradient-to-r from-primary-soft to-warm-coral-light">
-        <div class="flex justify-between items-center">
-          <div>
-            <h2 class="font-extrabold text-lg text-text-main" data-i18n="res.progress">How Are You Feeling?</h2>
-            <p class="text-xs text-text-sub mt-0.5" data-i18n="res.day">Day 4 of 15</p>
+    <!-- Warm Greeting -->
+    <div class="text-center pt-2">
+      <h2 class="text-2xl font-extrabold text-text-main" data-i18n="feel.title">How are you feeling right now?</h2>
+      <p class="text-sm text-text-sub mt-1" data-i18n="feel.sub">Take a moment to check in with yourself</p>
+    </div>
+
+    <!-- Check-in Form -->
+    <div id="checkin-form" class="space-y-6">
+      <!-- Full Mood Meter -->
+      <div class="bg-white rounded-2xl shadow-card border border-purple-50 p-4 overflow-hidden">
+        <!-- Top axis label -->
+        <div class="text-center mb-2"><span class="text-[10px] font-bold uppercase tracking-wider text-text-sub" data-i18n="feel.high">High Energy</span></div>
+        <div class="flex items-center gap-2">
+          <!-- Left axis label -->
+          <div class="flex items-center shrink-0"><span class="text-[10px] font-bold uppercase tracking-wider text-text-sub [writing-mode:vertical-lr] rotate-180" data-i18n="feel.unpleasant">Unpleasant</span></div>
+          <!-- 2x2 Grid -->
+          <div class="grid grid-cols-2 gap-2 flex-1">
+            <!-- Top-Left: High Energy Unpleasant -->
+            <div class="emotion-unpleasant-high rounded-2xl p-3 space-y-2">
+              <div class="flex flex-wrap gap-1.5">
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-red-900 cursor-pointer hover:bg-white/70 transition-all">Anxious</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-red-900 cursor-pointer hover:bg-white/70 transition-all">Frustrated</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-red-900 cursor-pointer hover:bg-white/70 transition-all">Angry</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-red-900 cursor-pointer hover:bg-white/70 transition-all">Overwhelmed</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-red-900 cursor-pointer hover:bg-white/70 transition-all">Stressed</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-red-900 cursor-pointer hover:bg-white/70 transition-all">Restless</span>
+              </div>
+            </div>
+            <!-- Top-Right: High Energy Pleasant -->
+            <div class="emotion-pleasant-high rounded-2xl p-3 space-y-2">
+              <div class="flex flex-wrap gap-1.5">
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-amber-900 cursor-pointer hover:bg-white/70 transition-all">Excited</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-amber-900 cursor-pointer hover:bg-white/70 transition-all">Joyful</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-amber-900 cursor-pointer hover:bg-white/70 transition-all">Energized</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-amber-900 cursor-pointer hover:bg-white/70 transition-all">Hopeful</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-amber-900 cursor-pointer hover:bg-white/70 transition-all">Inspired</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-amber-900 cursor-pointer hover:bg-white/70 transition-all">Grateful</span>
+              </div>
+            </div>
+            <!-- Bottom-Left: Low Energy Unpleasant -->
+            <div class="emotion-unpleasant-low rounded-2xl p-3 space-y-2">
+              <div class="flex flex-wrap gap-1.5">
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-blue-900 cursor-pointer hover:bg-white/70 transition-all">Sad</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-blue-900 cursor-pointer hover:bg-white/70 transition-all">Tired</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-blue-900 cursor-pointer hover:bg-white/70 transition-all">Lonely</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-blue-900 cursor-pointer hover:bg-white/70 transition-all">Bored</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-blue-900 cursor-pointer hover:bg-white/70 transition-all">Drained</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-blue-900 cursor-pointer hover:bg-white/70 transition-all">Numb</span>
+              </div>
+            </div>
+            <!-- Bottom-Right: Low Energy Pleasant -->
+            <div class="emotion-pleasant-low rounded-2xl p-3 space-y-2">
+              <div class="flex flex-wrap gap-1.5">
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-emerald-900 cursor-pointer hover:bg-white/70 transition-all">Calm</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-emerald-900 cursor-pointer hover:bg-white/70 transition-all">Content</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-emerald-900 cursor-pointer hover:bg-white/70 transition-all">Peaceful</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-emerald-900 cursor-pointer hover:bg-white/70 transition-all">Relaxed</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-emerald-900 cursor-pointer hover:bg-white/70 transition-all">Secure</span>
+                <span onclick="selectEmotion(this)" class="px-2.5 py-1 rounded-full bg-white/40 text-[11px] font-semibold text-emerald-900 cursor-pointer hover:bg-white/70 transition-all">Cozy</span>
+              </div>
+            </div>
           </div>
-          <div class="flex gap-1.5">
-            <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
-            <div class="h-2.5 w-2.5 rounded-full bg-warm-coral"></div>
-            <div class="h-2.5 w-2.5 rounded-full bg-warm-gold"></div>
-            <div class="h-2.5 w-2.5 rounded-full bg-warm-sage soft-pulse"></div>
-            <div class="h-2.5 w-2.5 rounded-full bg-gray-200"></div>
-          </div>
+          <!-- Right axis label -->
+          <div class="flex items-center shrink-0"><span class="text-[10px] font-bold uppercase tracking-wider text-text-sub [writing-mode:vertical-lr]" data-i18n="feel.pleasant">Pleasant</span></div>
+        </div>
+        <!-- Bottom axis label -->
+        <div class="text-center mt-2"><span class="text-[10px] font-bold uppercase tracking-wider text-text-sub" data-i18n="feel.low">Low Energy</span></div>
+      </div>
+
+      <!-- Journal Prompt -->
+      <div class="bg-white rounded-2xl shadow-card border border-purple-50 p-4">
+        <textarea id="checkin-journal" rows="3" class="w-full border border-purple-100 rounded-xl p-3 text-sm text-text-main placeholder-text-sub/60 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/30 resize-none bg-primary-soft/30" placeholder="What's on your mind? (optional)" data-i18n-placeholder="feel.journal"></textarea>
+      </div>
+
+      <!-- Body Sensations -->
+      <div class="bg-white rounded-2xl shadow-card border border-purple-50 p-4">
+        <h3 class="text-sm font-bold text-text-main mb-3 flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-[20px]">accessibility_new</span>
+          <span data-i18n="feel.body">Where do you feel it?</span>
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <span onclick="this.classList.toggle('bg-primary');this.classList.toggle('text-white');this.classList.toggle('bg-primary-soft')" class="px-3 py-1.5 rounded-full bg-primary-soft text-xs font-semibold text-primary cursor-pointer transition-all">Head</span>
+          <span onclick="this.classList.toggle('bg-primary');this.classList.toggle('text-white');this.classList.toggle('bg-primary-soft')" class="px-3 py-1.5 rounded-full bg-primary-soft text-xs font-semibold text-primary cursor-pointer transition-all">Chest</span>
+          <span onclick="this.classList.toggle('bg-primary');this.classList.toggle('text-white');this.classList.toggle('bg-primary-soft')" class="px-3 py-1.5 rounded-full bg-primary-soft text-xs font-semibold text-primary cursor-pointer transition-all">Stomach</span>
+          <span onclick="this.classList.toggle('bg-primary');this.classList.toggle('text-white');this.classList.toggle('bg-primary-soft')" class="px-3 py-1.5 rounded-full bg-primary-soft text-xs font-semibold text-primary cursor-pointer transition-all">Shoulders</span>
+          <span onclick="this.classList.toggle('bg-primary');this.classList.toggle('text-white');this.classList.toggle('bg-primary-soft')" class="px-3 py-1.5 rounded-full bg-primary-soft text-xs font-semibold text-primary cursor-pointer transition-all">Hands</span>
+          <span onclick="this.classList.toggle('bg-primary');this.classList.toggle('text-white');this.classList.toggle('bg-primary-soft')" class="px-3 py-1.5 rounded-full bg-primary-soft text-xs font-semibold text-primary cursor-pointer transition-all">Whole Body</span>
         </div>
       </div>
-      <div class="p-5 space-y-6" id="tracker-form">
-        <!-- Emotion quadrant mini-grid -->
-        <div class="grid grid-cols-2 gap-2 mb-2">
-          <div class="emotion-pleasant-high rounded-xl p-3 text-center cursor-pointer hover:scale-[1.02] transition-transform border-2 border-transparent hover:border-warm-gold/50">
-            <span class="text-2xl">&#128516;</span>
-            <p class="text-[10px] font-bold text-amber-900 mt-1">Joyful</p>
-          </div>
-          <div class="emotion-pleasant-low rounded-xl p-3 text-center cursor-pointer hover:scale-[1.02] transition-transform border-2 border-transparent hover:border-warm-sage/50">
-            <span class="text-2xl">&#128524;</span>
-            <p class="text-[10px] font-bold text-emerald-900 mt-1">Peaceful</p>
-          </div>
-          <div class="emotion-unpleasant-high rounded-xl p-3 text-center cursor-pointer hover:scale-[1.02] transition-transform border-2 border-transparent hover:border-warm-coral/50">
-            <span class="text-2xl">&#128548;</span>
-            <p class="text-[10px] font-bold text-red-900 mt-1">Frustrated</p>
-          </div>
-          <div class="emotion-unpleasant-low rounded-xl p-3 text-center cursor-pointer hover:scale-[1.02] transition-transform border-2 border-transparent hover:border-warm-blue/50">
-            <span class="text-2xl">&#128532;</span>
-            <p class="text-[10px] font-bold text-blue-900 mt-1">Low</p>
-          </div>
+
+      <!-- Save Check-in -->
+      <button onclick="submitCheckin()" class="w-full bg-gradient-to-r from-primary to-warm-coral hover:opacity-90 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined">favorite</span>
+        <span data-i18n="feel.save">Save Check-in</span>
+      </button>
+    </div>
+
+    <!-- Success State (hidden by default) -->
+    <div id="checkin-success" class="hidden">
+      <div class="bg-white rounded-2xl shadow-card border border-purple-50 p-8 text-center">
+        <div class="w-20 h-20 rounded-full bg-warm-sage-light flex items-center justify-center mx-auto mb-4 soft-pulse">
+          <span class="material-symbols-outlined text-warm-sage text-[44px]">check_circle</span>
         </div>
-        <div class="space-y-3">
-          <div class="flex justify-between items-end"><label class="text-sm font-bold flex items-center gap-2"><span class="material-symbols-outlined text-warm-sage text-[20px]">psychology</span><span data-i18n="res.beh">Behavioral Calmness</span></label><span class="text-lg font-extrabold text-primary"><span id="beh-val">7</span><span class="text-xs text-text-sub font-normal">/10</span></span></div>
-          <input type="range" min="1" max="10" value="7" oninput="document.getElementById('beh-val').textContent=this.value" class="w-full"/>
-          <div class="flex justify-between text-[10px] text-text-sub uppercase tracking-wide font-bold"><span data-i18n="res.restless">Restless</span><span data-i18n="res.calm">Calm</span></div>
-        </div>
-        <div class="space-y-3">
-          <div class="flex justify-between items-end"><label class="text-sm font-bold flex items-center gap-2"><span class="material-symbols-outlined text-warm-blue text-[20px]">record_voice_over</span><span data-i18n="res.speech">Speech Clarity</span></label><span class="text-lg font-extrabold text-primary"><span id="spc-val">5</span><span class="text-xs text-text-sub font-normal">/10</span></span></div>
-          <input type="range" min="1" max="10" value="5" oninput="document.getElementById('spc-val').textContent=this.value" class="w-full"/>
-          <div class="flex justify-between text-[10px] text-text-sub uppercase tracking-wide font-bold"><span data-i18n="res.unclear">Unclear</span><span data-i18n="res.fluent">Fluent</span></div>
-        </div>
-        <div class="space-y-3">
-          <div class="flex justify-between items-end"><label class="text-sm font-bold flex items-center gap-2"><span class="material-symbols-outlined text-warm-coral text-[20px]">speed</span><span data-i18n="res.hyp">Hyperactivity</span></label><span class="text-lg font-extrabold text-primary"><span id="hyp-val">6</span><span class="text-xs text-text-sub font-normal">/10</span></span></div>
-          <input type="range" min="1" max="10" value="6" oninput="document.getElementById('hyp-val').textContent=this.value" class="w-full"/>
-          <div class="flex justify-between text-[10px] text-text-sub uppercase tracking-wide font-bold"><span data-i18n="res.veryactive">Very Active</span><span data-i18n="res.reduced">Reduced</span></div>
-        </div>
-        <button onclick="submitTracker()" class="w-full bg-gradient-to-r from-primary to-warm-coral hover:opacity-90 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg active:scale-[0.98] transition-all flex items-center justify-center gap-2"><span class="material-symbols-outlined">favorite</span><span data-i18n="res.log">Log Today's Check-in</span></button>
-      </div>
-      <div id="tracker-success" class="hidden p-8 text-center">
-        <div class="w-16 h-16 rounded-full bg-warm-sage-light flex items-center justify-center mx-auto mb-3"><span class="material-symbols-outlined text-warm-sage text-[36px]">check_circle</span></div>
-        <p class="text-base font-extrabold text-text-main mt-2" data-i18n="res.logged">Check-in Complete!</p>
-        <p class="text-xs text-text-sub mt-1" data-i18n="res.review">Dr. Mandeep will review your progress.</p>
+        <h3 class="text-xl font-extrabold text-text-main" data-i18n="feel.saved">Check-in Saved!</h3>
+        <p class="text-sm text-text-sub mt-2">Your feelings matter. Keep checking in.</p>
+        <button onclick="document.getElementById('checkin-success').classList.add('hidden');document.getElementById('checkin-form').classList.remove('hidden');" class="mt-4 text-sm font-bold text-primary hover:text-primary-dark transition-colors">New Check-in</button>
       </div>
     </div>
-    <!-- Diet & Lifestyle -->
+
+    <!-- Recent Check-ins -->
+    <div>
+      <h3 class="text-lg font-bold text-text-main mb-3 flex items-center gap-2">
+        <span class="w-1.5 h-5 bg-gradient-to-b from-primary to-warm-coral rounded-full"></span>
+        <span data-i18n="feel.recent">Recent Check-ins</span>
+      </h3>
+      <div class="space-y-2.5">
+        <div class="bg-white rounded-xl p-3.5 shadow-card border border-purple-50 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl emotion-pleasant-high flex items-center justify-center shrink-0"><span class="text-lg">&#128516;</span></div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2"><span class="text-sm font-bold text-text-main">Joyful</span><span class="text-[10px] text-text-sub">Today, 9:15 AM</span></div>
+            <p class="text-xs text-text-sub truncate">Feeling great after morning walk with the kids</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-3.5 shadow-card border border-purple-50 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl emotion-pleasant-low flex items-center justify-center shrink-0"><span class="text-lg">&#128524;</span></div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2"><span class="text-sm font-bold text-text-main">Calm</span><span class="text-[10px] text-text-sub">Yesterday, 8:30 PM</span></div>
+            <p class="text-xs text-text-sub truncate">Evening meditation helped a lot</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-3.5 shadow-card border border-purple-50 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl emotion-unpleasant-high flex items-center justify-center shrink-0"><span class="text-lg">&#128548;</span></div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2"><span class="text-sm font-bold text-text-main">Stressed</span><span class="text-[10px] text-text-sub">Mar 13, 2:00 PM</span></div>
+            <p class="text-xs text-text-sub truncate">Busy day at work, tension in shoulders</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Diet & Lifestyle (preserved from old page) -->
     <div>
       <div class="flex items-center justify-between mb-4"><h3 class="text-lg font-bold" data-i18n="res.diet">Diet & Lifestyle</h3></div>
       <div class="grid grid-cols-2 gap-3">
@@ -643,7 +725,7 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
         </div>
       </div>
     </div>
-    <!-- Therapies Videos -->
+    <!-- Therapies Videos (preserved from old page) -->
     <div>
       <div class="flex items-center justify-between mb-4"><h3 class="text-lg font-bold" data-i18n="res.therapies">Therapies</h3></div>
       <div class="flex overflow-x-auto gap-4 pb-2 scrollbar-hide snap-x">
@@ -665,7 +747,7 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
         </div>
       </div>
     </div>
-    <!-- Mental Wellness Audio -->
+    <!-- Mental Wellness Audio (preserved from old page) -->
     <div class="bg-gradient-to-br from-primary-soft to-warm-blue-light rounded-2xl p-5 border border-primary/10 flex items-center justify-between gap-4">
       <div class="flex-1">
         <div class="flex items-center gap-2 mb-2 text-primary"><span class="material-symbols-outlined text-[20px]">self_improvement</span><span class="text-xs font-bold uppercase tracking-wider" data-i18n="res.wellness">Mental Wellness</span></div>
@@ -673,6 +755,214 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
         <p class="text-xs text-text-sub" data-i18n="res.meditation">Guided meditation for better sleep.</p>
       </div>
       <button class="h-14 w-14 rounded-2xl bg-gradient-to-br from-primary to-warm-blue text-white flex items-center justify-center shadow-lg shadow-primary/25 active:scale-95 transition-transform shrink-0"><span class="material-symbols-outlined text-[28px] ml-1">play_arrow</span></button>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== PAGE 4B: INSIGHTS ===================== -->
+<div id="page-insights" class="page wellness-page-offset">
+  <section class="px-4 py-6 space-y-6">
+    <!-- Header -->
+    <div>
+      <h2 class="text-xl font-extrabold text-text-main" data-i18n="ins.title">Your Insights</h2>
+      <p class="text-sm text-text-sub mt-0.5" data-i18n="ins.sub">Understand your emotional patterns</p>
+    </div>
+
+    <!-- Check-in Streak -->
+    <div class="bg-white rounded-2xl shadow-card border border-purple-50 p-5">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl bg-warm-gold-light flex items-center justify-center">
+            <span class="material-symbols-outlined text-warm-gold text-[28px]">local_fire_department</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-extrabold text-text-main">7 <span class="text-sm font-bold text-text-sub" data-i18n="ins.streak">Day Streak</span></h3>
+            <p class="text-xs text-warm-gold font-semibold">Keep it going!</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-between gap-1.5">
+        <div class="flex-1 flex flex-col items-center gap-1"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-white text-[16px]">check</span></div><span class="text-[9px] font-bold text-text-sub">Mon</span></div>
+        <div class="flex-1 flex flex-col items-center gap-1"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-white text-[16px]">check</span></div><span class="text-[9px] font-bold text-text-sub">Tue</span></div>
+        <div class="flex-1 flex flex-col items-center gap-1"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-white text-[16px]">check</span></div><span class="text-[9px] font-bold text-text-sub">Wed</span></div>
+        <div class="flex-1 flex flex-col items-center gap-1"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-white text-[16px]">check</span></div><span class="text-[9px] font-bold text-text-sub">Thu</span></div>
+        <div class="flex-1 flex flex-col items-center gap-1"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-white text-[16px]">check</span></div><span class="text-[9px] font-bold text-text-sub">Fri</span></div>
+        <div class="flex-1 flex flex-col items-center gap-1"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-white text-[16px]">check</span></div><span class="text-[9px] font-bold text-text-sub">Sat</span></div>
+        <div class="flex-1 flex flex-col items-center gap-1"><div class="w-8 h-8 rounded-full bg-primary/20 border-2 border-dashed border-primary/40 flex items-center justify-center"></div><span class="text-[9px] font-bold text-text-sub">Sun</span></div>
+      </div>
+    </div>
+
+    <!-- This Week's Emotions -->
+    <div class="bg-white rounded-2xl shadow-card border border-purple-50 p-5">
+      <h3 class="text-base font-bold text-text-main mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[20px]">bar_chart</span>
+        <span data-i18n="ins.week">This Week's Emotions</span>
+      </h3>
+      <div class="space-y-3">
+        <div class="flex items-center gap-3"><span class="text-xs font-semibold w-16 text-amber-800">Joyful</span><div class="flex-1 bg-gray-100 rounded-full h-3 overflow-hidden"><div class="h-full emotion-pleasant-high rounded-full" style="width:40%"></div></div><span class="text-xs font-bold text-text-sub w-8 text-right">40%</span></div>
+        <div class="flex items-center gap-3"><span class="text-xs font-semibold w-16 text-emerald-800">Calm</span><div class="flex-1 bg-gray-100 rounded-full h-3 overflow-hidden"><div class="h-full emotion-pleasant-low rounded-full" style="width:25%"></div></div><span class="text-xs font-bold text-text-sub w-8 text-right">25%</span></div>
+        <div class="flex items-center gap-3"><span class="text-xs font-semibold w-16 text-red-800">Anxious</span><div class="flex-1 bg-gray-100 rounded-full h-3 overflow-hidden"><div class="h-full emotion-unpleasant-high rounded-full" style="width:20%"></div></div><span class="text-xs font-bold text-text-sub w-8 text-right">20%</span></div>
+        <div class="flex items-center gap-3"><span class="text-xs font-semibold w-16 text-blue-800">Low</span><div class="flex-1 bg-gray-100 rounded-full h-3 overflow-hidden"><div class="h-full emotion-unpleasant-low rounded-full" style="width:15%"></div></div><span class="text-xs font-bold text-text-sub w-8 text-right">15%</span></div>
+      </div>
+    </div>
+
+    <!-- Most Frequent Feelings -->
+    <div class="bg-white rounded-2xl shadow-card border border-purple-50 p-5">
+      <h3 class="text-base font-bold text-text-main mb-3 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[20px]">favorite</span>
+        <span data-i18n="ins.frequent">Most Frequent Feelings</span>
+      </h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1.5 rounded-full bg-warm-gold-light text-xs font-bold text-amber-800 border border-warm-gold/20">Joyful <span class="text-amber-500 ml-1">12x</span></span>
+        <span class="px-3 py-1.5 rounded-full bg-warm-sage-light text-xs font-bold text-emerald-800 border border-warm-sage/20">Calm <span class="text-emerald-500 ml-1">9x</span></span>
+        <span class="px-3 py-1.5 rounded-full bg-warm-gold-light text-xs font-bold text-amber-800 border border-warm-gold/20">Grateful <span class="text-amber-500 ml-1">7x</span></span>
+        <span class="px-3 py-1.5 rounded-full bg-warm-coral-light text-xs font-bold text-red-800 border border-warm-coral/20">Stressed <span class="text-red-400 ml-1">5x</span></span>
+        <span class="px-3 py-1.5 rounded-full bg-warm-blue-light text-xs font-bold text-blue-800 border border-warm-blue/20">Tired <span class="text-blue-400 ml-1">3x</span></span>
+      </div>
+    </div>
+
+    <!-- Correlations -->
+    <div class="bg-white rounded-2xl shadow-card border border-purple-50 p-5">
+      <h3 class="text-base font-bold text-text-main mb-3 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[20px]">timeline</span>
+        <span data-i18n="ins.correlations">Correlations</span>
+      </h3>
+      <div class="space-y-3">
+        <div class="flex items-center gap-3 p-3 bg-warm-sage-light/50 rounded-xl">
+          <span class="material-symbols-outlined text-warm-sage text-[22px]">bedtime</span>
+          <p class="text-xs font-medium text-text-main">Better sleep = More calm days</p>
+        </div>
+        <div class="flex items-center gap-3 p-3 bg-warm-coral-light/50 rounded-xl">
+          <span class="material-symbols-outlined text-warm-coral text-[22px]">directions_run</span>
+          <p class="text-xs font-medium text-text-main">Exercise = Higher energy</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weekly Summary -->
+    <div class="bg-gradient-to-br from-primary-soft to-warm-coral-light rounded-2xl p-5 border border-primary/10">
+      <h3 class="text-base font-bold text-text-main mb-3 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[20px]">auto_awesome</span>
+        <span data-i18n="ins.summary">Weekly Summary</span>
+      </h3>
+      <p class="text-sm text-text-main leading-relaxed">This week you checked in <strong>5 times</strong>. You felt most <strong class="text-amber-700">joyful on Tuesday</strong>. Stress peaked on Monday but resolved by Wednesday. Overall trend: <span class="text-warm-sage font-bold">positive</span>.</p>
+    </div>
+
+    <!-- Export -->
+    <button class="w-full bg-white border-2 border-primary/20 hover:border-primary/40 text-primary font-bold py-3 px-4 rounded-xl shadow-card transition-all flex items-center justify-center gap-2">
+      <span class="material-symbols-outlined text-[20px]">download</span>
+      <span data-i18n="ins.export">Export Weekly Report</span>
+    </button>
+  </section>
+</div>
+
+<!-- ===================== PAGE 4C: TOOLS ===================== -->
+<div id="page-tools" class="page wellness-page-offset">
+  <section class="px-4 py-6 space-y-6">
+    <!-- Header -->
+    <div>
+      <h2 class="text-xl font-extrabold text-text-main" data-i18n="tools.title">Wellness Tools</h2>
+      <p class="text-sm text-text-sub mt-0.5" data-i18n="tools.sub">Strategies to help you feel better</p>
+    </div>
+
+    <!-- 4 Strategy Categories -->
+    <div class="grid grid-cols-2 gap-3">
+      <!-- Change Your Thinking -->
+      <div class="bg-white rounded-2xl shadow-card border border-purple-50 p-4 space-y-3">
+        <div class="w-11 h-11 rounded-xl bg-primary-soft flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[24px]">psychology</span></div>
+        <h4 class="font-bold text-sm text-text-main" data-i18n="tools.think">Change Your Thinking</h4>
+        <p class="text-[11px] text-text-sub">Reframe negative thoughts</p>
+        <div class="space-y-1.5">
+          <div class="bg-primary-soft/50 rounded-lg px-2.5 py-2 text-[11px] font-semibold text-primary cursor-pointer hover:bg-primary-soft transition-colors">Gratitude List</div>
+          <div class="bg-primary-soft/50 rounded-lg px-2.5 py-2 text-[11px] font-semibold text-primary cursor-pointer hover:bg-primary-soft transition-colors">Thought Challenge</div>
+        </div>
+      </div>
+      <!-- Move Your Body -->
+      <div class="bg-white rounded-2xl shadow-card border border-purple-50 p-4 space-y-3">
+        <div class="w-11 h-11 rounded-xl bg-warm-coral-light flex items-center justify-center"><span class="material-symbols-outlined text-warm-coral text-[24px]">directions_run</span></div>
+        <h4 class="font-bold text-sm text-text-main" data-i18n="tools.move">Move Your Body</h4>
+        <p class="text-[11px] text-text-sub">Release tension through movement</p>
+        <div class="space-y-1.5">
+          <div class="bg-warm-coral-light/50 rounded-lg px-2.5 py-2 text-[11px] font-semibold text-warm-coral cursor-pointer hover:bg-warm-coral-light transition-colors">5-Min Stretch</div>
+          <div class="bg-warm-coral-light/50 rounded-lg px-2.5 py-2 text-[11px] font-semibold text-warm-coral cursor-pointer hover:bg-warm-coral-light transition-colors">Dance Break</div>
+        </div>
+      </div>
+      <!-- Be Mindful -->
+      <div class="bg-white rounded-2xl shadow-card border border-purple-50 p-4 space-y-3">
+        <div class="w-11 h-11 rounded-xl bg-warm-sage-light flex items-center justify-center"><span class="material-symbols-outlined text-warm-sage text-[24px]">self_improvement</span></div>
+        <h4 class="font-bold text-sm text-text-main" data-i18n="tools.mindful">Be Mindful</h4>
+        <p class="text-[11px] text-text-sub">Ground yourself in the present</p>
+        <div class="space-y-1.5">
+          <div class="bg-warm-sage-light/50 rounded-lg px-2.5 py-2 text-[11px] font-semibold text-warm-sage cursor-pointer hover:bg-warm-sage-light transition-colors">Body Scan</div>
+          <div class="bg-warm-sage-light/50 rounded-lg px-2.5 py-2 text-[11px] font-semibold text-warm-sage cursor-pointer hover:bg-warm-sage-light transition-colors">5-4-3-2-1 Senses</div>
+        </div>
+      </div>
+      <!-- Reach Out -->
+      <div class="bg-white rounded-2xl shadow-card border border-purple-50 p-4 space-y-3">
+        <div class="w-11 h-11 rounded-xl bg-warm-blue-light flex items-center justify-center"><span class="material-symbols-outlined text-warm-blue text-[24px]">people</span></div>
+        <h4 class="font-bold text-sm text-text-main" data-i18n="tools.reach">Reach Out</h4>
+        <p class="text-[11px] text-text-sub">Connect with someone you trust</p>
+        <div class="space-y-1.5">
+          <div class="bg-warm-blue-light/50 rounded-lg px-2.5 py-2 text-[11px] font-semibold text-warm-blue cursor-pointer hover:bg-warm-blue-light transition-colors">Call a Friend</div>
+          <div class="bg-warm-blue-light/50 rounded-lg px-2.5 py-2 text-[11px] font-semibold text-warm-blue cursor-pointer hover:bg-warm-blue-light transition-colors">Write a Note</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Breathing Exercise -->
+    <div class="bg-white rounded-2xl shadow-card border border-purple-50 p-5">
+      <h3 class="text-base font-bold text-text-main mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[20px]">air</span>
+        <span data-i18n="tools.breathe">Breathing Exercise</span>
+      </h3>
+      <div class="flex flex-col items-center gap-4">
+        <div id="breathing-circle" class="w-32 h-32 rounded-full bg-gradient-to-br from-primary/20 to-warm-sage/20 border-4 border-primary/30 flex items-center justify-center transition-all duration-[4000ms]">
+          <span id="breathing-text" class="text-sm font-bold text-primary">Ready</span>
+        </div>
+        <button onclick="startBreathing()" id="breathing-btn" class="bg-gradient-to-r from-primary to-warm-sage hover:opacity-90 text-white font-bold py-3 px-6 rounded-xl shadow-lg active:scale-[0.98] transition-all flex items-center gap-2">
+          <span class="material-symbols-outlined text-[20px]">play_arrow</span>
+          Start Breathing Exercise
+        </button>
+      </div>
+    </div>
+
+    <!-- Sound Mixer -->
+    <div class="bg-white rounded-2xl shadow-card border border-purple-50 p-5">
+      <h3 class="text-base font-bold text-text-main mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[20px]">music_note</span>
+        <span data-i18n="tools.sounds">Calming Sounds</span>
+      </h3>
+      <div class="grid grid-cols-4 gap-2.5">
+        <div onclick="toggleSound(this)" class="flex flex-col items-center gap-2 p-3 rounded-xl bg-primary-soft/30 border-2 border-transparent cursor-pointer hover:border-primary/20 transition-all">
+          <span class="material-symbols-outlined text-primary text-[28px]">water</span>
+          <span class="text-[10px] font-bold text-text-sub">Rain</span>
+        </div>
+        <div onclick="toggleSound(this)" class="flex flex-col items-center gap-2 p-3 rounded-xl bg-primary-soft/30 border-2 border-transparent cursor-pointer hover:border-primary/20 transition-all">
+          <span class="material-symbols-outlined text-warm-blue text-[28px]">waves</span>
+          <span class="text-[10px] font-bold text-text-sub">Ocean</span>
+        </div>
+        <div onclick="toggleSound(this)" class="flex flex-col items-center gap-2 p-3 rounded-xl bg-primary-soft/30 border-2 border-transparent cursor-pointer hover:border-primary/20 transition-all">
+          <span class="material-symbols-outlined text-warm-sage text-[28px]">park</span>
+          <span class="text-[10px] font-bold text-text-sub">Forest</span>
+        </div>
+        <div onclick="toggleSound(this)" class="flex flex-col items-center gap-2 p-3 rounded-xl bg-primary-soft/30 border-2 border-transparent cursor-pointer hover:border-primary/20 transition-all">
+          <span class="material-symbols-outlined text-warm-gold text-[28px]">notifications</span>
+          <span class="text-[10px] font-bold text-text-sub">Chimes</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Daily Affirmation -->
+    <div class="bg-gradient-to-br from-primary via-[#9B8EC4] to-warm-coral rounded-2xl p-6 shadow-lg relative overflow-hidden">
+      <div class="absolute -right-8 -top-8 w-28 h-28 bg-white/10 rounded-full blur-xl"></div>
+      <div class="absolute -left-4 -bottom-6 w-20 h-20 bg-white/10 rounded-full blur-lg"></div>
+      <div class="relative z-10">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="material-symbols-outlined text-white/80 text-[20px]">auto_awesome</span>
+          <span class="text-xs font-bold text-white/80 uppercase tracking-wider" data-i18n="tools.affirm">Daily Affirmation</span>
+        </div>
+        <p class="text-white text-lg font-bold leading-relaxed">"You are worthy of peace and joy. Every step you take towards self-care is a step towards healing."</p>
+      </div>
     </div>
   </section>
 </div>
@@ -883,30 +1173,35 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
 
 </main>
 
-<!-- ========== UNIFIED BOTTOM NAV (6 HUBS) ========== -->
+<!-- ========== WELLNESS SUB-NAV (shows on Feel/Insights/Tools pages) ========== -->
+<div id="wellness-subnav" class="fixed top-[57px] left-0 w-full bg-white/95 backdrop-blur-lg border-b border-purple-50 z-30 hidden">
+  <div class="flex max-w-lg mx-auto px-4 py-2 gap-2">
+    <button onclick="navigateTo('feel')" data-subtab="feel" class="sub-tab flex-1 py-2 rounded-xl text-xs font-bold text-center transition-all bg-primary text-white" data-i18n="sub.checkin">Check-in</button>
+    <button onclick="navigateTo('insights')" data-subtab="insights" class="sub-tab flex-1 py-2 rounded-xl text-xs font-bold text-center transition-all bg-primary-soft text-primary" data-i18n="sub.insights">Insights</button>
+    <button onclick="navigateTo('tools')" data-subtab="tools" class="sub-tab flex-1 py-2 rounded-xl text-xs font-bold text-center transition-all bg-primary-soft text-primary" data-i18n="sub.tools">Tools</button>
+  </div>
+</div>
+
+<!-- ========== BOTTOM NAV (5 TABS) ========== -->
 <nav class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-lg border-t border-purple-50 z-40">
-  <div class="flex justify-between items-end pb-4 pt-2 px-2 max-w-lg mx-auto">
-    <button onclick="navigateTo('home')" data-page="home" class="nav-btn active flex flex-col items-center gap-1 w-14 text-primary transition-colors">
+  <div class="flex justify-around items-end pb-4 pt-2 px-3 max-w-lg mx-auto">
+    <button onclick="navigateTo('home')" data-page="home" class="nav-btn active flex flex-col items-center gap-1 w-16 text-primary transition-colors">
       <div class="relative"><span class="material-symbols-outlined text-[24px]">home</span><span class="nav-dot absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"></span></div>
-      <span class="text-[10px] font-semibold" data-i18n="nav.home">Home</span>
+      <span class="text-[10px] font-bold" data-i18n="nav.home">Home</span>
     </button>
-    <button onclick="navigateTo('about')" data-page="about" class="nav-btn flex flex-col items-center gap-1 w-14 text-gray-400 transition-colors">
+    <button onclick="navigateTo('feel')" data-page="feel" class="nav-btn flex flex-col items-center gap-1 w-16 text-gray-400 transition-colors">
+      <div class="relative"><span class="material-symbols-outlined text-[24px]">mood</span><span class="nav-dot absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"></span></div>
+      <span class="text-[10px] font-medium" data-i18n="nav.feel">Feel</span>
+    </button>
+    <button onclick="navigateTo('services')" data-page="services" class="nav-btn flex flex-col items-center gap-1 w-16 text-gray-400 transition-colors">
+      <div class="relative"><span class="material-symbols-outlined text-[24px]">spa</span><span class="nav-dot absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"></span></div>
+      <span class="text-[10px] font-medium" data-i18n="nav.services">Services</span>
+    </button>
+    <button onclick="navigateTo('about')" data-page="about" class="nav-btn flex flex-col items-center gap-1 w-16 text-gray-400 transition-colors">
       <div class="relative"><span class="material-symbols-outlined text-[24px]">person</span><span class="nav-dot absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"></span></div>
       <span class="text-[10px] font-medium" data-i18n="nav.about">About</span>
     </button>
-    <button onclick="navigateTo('services')" data-page="services" class="nav-btn flex flex-col items-center gap-1 w-14 text-gray-400 transition-colors">
-      <div class="relative"><span class="material-symbols-outlined text-[24px]">stethoscope</span><span class="nav-dot absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"></span></div>
-      <span class="text-[10px] font-medium" data-i18n="nav.services">Services</span>
-    </button>
-    <button onclick="navigateTo('resources')" data-page="resources" class="nav-btn flex flex-col items-center gap-1 w-14 text-gray-400 transition-colors">
-      <div class="relative"><span class="material-symbols-outlined text-[24px]">menu_book</span><span class="nav-dot absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"></span></div>
-      <span class="text-[10px] font-medium" data-i18n="nav.portal">Portal</span>
-    </button>
-    <button onclick="navigateTo('welfare')" data-page="welfare" class="nav-btn flex flex-col items-center gap-1 w-14 text-gray-400 transition-colors">
-      <div class="relative"><span class="material-symbols-outlined text-[24px]">volunteer_activism</span><span class="nav-dot absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"></span></div>
-      <span class="text-[10px] font-medium" data-i18n="nav.welfare">Welfare</span>
-    </button>
-    <button onclick="navigateTo('contact')" data-page="contact" class="nav-btn flex flex-col items-center gap-1 w-14 text-gray-400 transition-colors">
+    <button onclick="navigateTo('contact')" data-page="contact" class="nav-btn flex flex-col items-center gap-1 w-16 text-gray-400 transition-colors">
       <div class="relative"><span class="material-symbols-outlined text-[24px]">call</span><span class="nav-dot absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"></span></div>
       <span class="text-[10px] font-medium" data-i18n="nav.contact">Contact</span>
     </button>
@@ -915,14 +1210,65 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
 
 <!-- ========== JAVASCRIPT ========== -->
 <script>
+const wellnessPages = ['feel', 'insights', 'tools'];
 function navigateTo(page) {
+  if (page === 'resources') page = 'feel';
+  // If navigating to welfare, treat it as a page but highlight About in nav
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + page);
   if (target) { void target.offsetWidth; target.classList.add('active'); }
+  // Bottom nav: highlight the correct tab
   document.querySelectorAll('.nav-btn').forEach(n => { n.classList.remove('active'); n.classList.add('text-gray-400'); n.classList.remove('text-primary'); });
-  const btn = document.querySelector('.nav-btn[data-page="' + page + '"]');
+  let navPage = page;
+  if (wellnessPages.includes(page)) navPage = 'feel';
+  if (page === 'welfare') navPage = 'about';
+  const btn = document.querySelector('.nav-btn[data-page="' + navPage + '"]');
   if (btn) { btn.classList.add('active', 'text-primary'); btn.classList.remove('text-gray-400'); }
+  // Sub-nav: show/hide and highlight active sub-tab
+  const subnav = document.getElementById('wellness-subnav');
+  if (wellnessPages.includes(page)) {
+    subnav.classList.remove('hidden');
+    document.querySelectorAll('.sub-tab').forEach(t => { t.className = 'sub-tab flex-1 py-2 rounded-xl text-xs font-bold text-center transition-all bg-primary-soft text-primary'; });
+    const activeTab = document.querySelector('.sub-tab[data-subtab="' + page + '"]');
+    if (activeTab) activeTab.className = 'sub-tab flex-1 py-2 rounded-xl text-xs font-bold text-center transition-all bg-primary text-white shadow-sm';
+  } else {
+    subnav.classList.add('hidden');
+  }
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function selectEmotion(el) {
+  el.classList.toggle('ring-2');
+  el.classList.toggle('ring-white');
+  el.classList.toggle('shadow-lg');
+  el.classList.toggle('scale-105');
+  el.classList.toggle('bg-white/70');
+}
+
+function submitCheckin() {
+  document.getElementById('checkin-form').classList.add('hidden');
+  document.getElementById('checkin-success').classList.remove('hidden');
+}
+
+let breathingInterval = null;
+function startBreathing() {
+  const circle = document.getElementById('breathing-circle');
+  const text = document.getElementById('breathing-text');
+  const btn = document.getElementById('breathing-btn');
+  if (breathingInterval) { clearInterval(breathingInterval); breathingInterval = null; circle.style.transform='scale(1)'; text.textContent='Ready'; btn.innerHTML='<span class="material-symbols-outlined text-[20px]">play_arrow</span> Start Breathing Exercise'; return; }
+  btn.innerHTML='<span class="material-symbols-outlined text-[20px]">stop</span> Stop';
+  const phases = [{t:'Breathe In...', s:'scale(1.3)'}, {t:'Hold...', s:'scale(1.3)'}, {t:'Breathe Out...', s:'scale(1)'}];
+  let i = 0;
+  function next() { text.textContent = phases[i].t; circle.style.transform = phases[i].s; i = (i+1) % 3; }
+  next();
+  breathingInterval = setInterval(next, 4000);
+}
+
+function toggleSound(el) {
+  el.classList.toggle('border-primary');
+  el.classList.toggle('bg-primary-soft');
+  el.classList.toggle('border-transparent');
+  el.classList.toggle('bg-primary-soft/30');
 }
 
 let currentLang = 'en';
@@ -945,8 +1291,8 @@ const i18n = {
   'quick.services.sub': { en: 'Treatments & Care', pa: 'ਇਲਾਜ ਅਤੇ ਦੇਖਭਾਲ' },
   'quick.about': { en: 'About Doctor', pa: 'ਡਾਕਟਰ ਬਾਰੇ' },
   'quick.about.sub': { en: 'Experience & Bio', pa: 'ਤਜਰਬਾ ਅਤੇ ਜੀਵਨੀ' },
-  'quick.resources': { en: 'Resources', pa: 'ਸਰੋਤ' },
-  'quick.resources.sub': { en: 'Guides & FAQs', pa: 'ਗਾਈਡਾਂ ਅਤੇ ਸਵਾਲ' },
+  'quick.resources': { en: 'Wellness', pa: 'ਤੰਦਰੁਸਤੀ' },
+  'quick.resources.sub': { en: 'Check-in & Tools', pa: 'ਚੈਕ-ਇਨ ਅਤੇ ਟੂਲ' },
   'quick.welfare': { en: 'Welfare', pa: 'ਭਲਾਈ' },
   'quick.welfare.sub': { en: 'Community Impact', pa: 'ਸਮਾਜ ਸੇਵਾ' },
   'cta.free': { en: 'Free', pa: 'ਮੁਫ਼ਤ' },
@@ -1083,8 +1429,45 @@ const i18n = {
   'con.send': { en: 'Send Securely', pa: 'ਸੁਰੱਖਿਅਤ ਭੇਜੋ' },
   'con.sent': { en: 'Message Sent!', pa: 'ਸੁਨੇਹਾ ਭੇਜਿਆ ਗਿਆ!' },
   'con.respond': { en: "We'll respond within 24 hours.", pa: 'ਅਸੀਂ 24 ਘੰਟਿਆਂ ਵਿੱਚ ਜਵਾਬ ਦੇਵਾਂਗੇ।' },
+  // ── FEEL PAGE ──
+  'feel.title': { en: 'How are you feeling right now?', pa: 'ਤੁਸੀਂ ਹੁਣ ਕਿਵੇਂ ਮਹਿਸੂਸ ਕਰ ਰਹੇ ਹੋ?' },
+  'feel.sub': { en: 'Take a moment to check in with yourself', pa: 'ਆਪਣੇ ਆਪ ਨਾਲ ਚੈਕ-ਇਨ ਕਰਨ ਲਈ ਇੱਕ ਪਲ ਲਓ' },
+  'feel.high': { en: 'High Energy', pa: 'ਉੱਚ ਊਰਜਾ' },
+  'feel.low': { en: 'Low Energy', pa: 'ਘੱਟ ਊਰਜਾ' },
+  'feel.pleasant': { en: 'Pleasant', pa: 'ਖੁਸ਼ਗਵਾਰ' },
+  'feel.unpleasant': { en: 'Unpleasant', pa: 'ਅਸੁਖਾਵਾਂ' },
+  'feel.journal': { en: "What's on your mind? (optional)", pa: 'ਤੁਹਾਡੇ ਮਨ ਵਿੱਚ ਕੀ ਹੈ? (ਵਿਕਲਪਿਕ)' },
+  'feel.body': { en: 'Where do you feel it?', pa: 'ਤੁਸੀਂ ਇਹ ਕਿੱਥੇ ਮਹਿਸੂਸ ਕਰਦੇ ਹੋ?' },
+  'feel.save': { en: 'Save Check-in', pa: 'ਚੈਕ-ਇਨ ਸੇਵ ਕਰੋ' },
+  'feel.saved': { en: 'Check-in Saved!', pa: 'ਚੈਕ-ਇਨ ਸੇਵ ਹੋ ਗਈ!' },
+  'feel.recent': { en: 'Recent Check-ins', pa: 'ਹਾਲੀਆ ਚੈਕ-ਇਨ' },
+  // ── INSIGHTS PAGE ──
+  'ins.title': { en: 'Your Insights', pa: 'ਤੁਹਾਡੀ ਜਾਣਕਾਰੀ' },
+  'ins.sub': { en: 'Understand your emotional patterns', pa: 'ਆਪਣੇ ਭਾਵਨਾਤਮਕ ਪੈਟਰਨ ਸਮਝੋ' },
+  'ins.streak': { en: 'Day Streak', pa: 'ਦਿਨ ਦੀ ਲੜੀ' },
+  'ins.week': { en: "This Week's Emotions", pa: 'ਇਸ ਹਫ਼ਤੇ ਦੀਆਂ ਭਾਵਨਾਵਾਂ' },
+  'ins.frequent': { en: 'Most Frequent Feelings', pa: 'ਸਭ ਤੋਂ ਵੱਧ ਭਾਵਨਾਵਾਂ' },
+  'ins.correlations': { en: 'Correlations', pa: 'ਸੰਬੰਧ' },
+  'ins.summary': { en: 'Weekly Summary', pa: 'ਹਫ਼ਤਾਵਾਰੀ ਸਾਰ' },
+  'ins.export': { en: 'Export Weekly Report', pa: 'ਹਫ਼ਤਾਵਾਰੀ ਰਿਪੋਰਟ ਐਕਸਪੋਰਟ ਕਰੋ' },
+  // ── TOOLS PAGE ──
+  'tools.title': { en: 'Wellness Tools', pa: 'ਤੰਦਰੁਸਤੀ ਟੂਲ' },
+  'tools.sub': { en: 'Strategies to help you feel better', pa: 'ਬਿਹਤਰ ਮਹਿਸੂਸ ਕਰਨ ਲਈ ਰਣਨੀਤੀਆਂ' },
+  'tools.think': { en: 'Change Your Thinking', pa: 'ਆਪਣੀ ਸੋਚ ਬਦਲੋ' },
+  'tools.move': { en: 'Move Your Body', pa: 'ਆਪਣਾ ਸਰੀਰ ਹਿਲਾਓ' },
+  'tools.mindful': { en: 'Be Mindful', pa: 'ਸੁਚੇਤ ਰਹੋ' },
+  'tools.reach': { en: 'Reach Out', pa: 'ਸੰਪਰਕ ਕਰੋ' },
+  'tools.breathe': { en: 'Breathing Exercise', pa: 'ਸਾਹ ਦੀ ਕਸਰਤ' },
+  'tools.sounds': { en: 'Calming Sounds', pa: 'ਸ਼ਾਂਤ ਕਰਨ ਵਾਲੀਆਂ ਆਵਾਜ਼ਾਂ' },
+  'tools.affirm': { en: 'Daily Affirmation', pa: 'ਰੋਜ਼ਾਨਾ ਪੁਸ਼ਟੀ' },
   // ── NAV ──
   'nav.home': { en: 'Home', pa: 'ਹੋਮ' },
+  'nav.feel': { en: 'Feel', pa: 'ਮਹਿਸੂਸ' },
+  'nav.insights': { en: 'Insights', pa: 'ਜਾਣਕਾਰੀ' },
+  'nav.tools': { en: 'Tools', pa: 'ਟੂਲ' },
+  'sub.checkin': { en: 'Check-in', pa: 'ਚੈਕ-ਇਨ' },
+  'sub.insights': { en: 'Insights', pa: 'ਜਾਣਕਾਰੀ' },
+  'sub.tools': { en: 'Tools', pa: 'ਟੂਲ' },
   'nav.about': { en: 'About', pa: 'ਬਾਰੇ' },
   'nav.services': { en: 'Services', pa: 'ਸੇਵਾਵਾਂ' },
   'nav.portal': { en: 'Portal', pa: 'ਪੋਰਟਲ' },
