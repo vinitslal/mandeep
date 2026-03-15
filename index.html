@@ -6,7 +6,7 @@
 <title>Mandeep Homeo Clinic</title>
 <!-- PWA Meta Tags -->
 <link rel="manifest" href="./manifest.json"/>
-<meta name="theme-color" content="#19e65e"/>
+<meta name="theme-color" content="#7B6CA8"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
 <meta name="apple-mobile-web-app-title" content="Mandeep Homeo"/>
@@ -16,7 +16,7 @@
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script>
@@ -25,78 +25,95 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "primary": "#19e65e",
-        "primary-dark": "#12a844",
-        "primary-light": "#d1fae0",
-        "primary-soft": "#e8fdf0",
-        "background-light": "#f6f8f6",
-        "background-dark": "#112116",
+        "primary": "#7B6CA8",
+        "primary-dark": "#5E5291",
+        "primary-light": "#E8E1F5",
+        "primary-soft": "#F3F0FA",
+        "background-light": "#FBF7F1",
+        "background-dark": "#2A2440",
         "surface-light": "#ffffff",
-        "surface-dark": "#1a2e22",
-        "soft-cream": "#FAF9F6",
-        "accent-blue": "#E0F2F1",
-        "warm-blue": "#4A6FA5",
-        "warm-blue-light": "#E8F1F8",
-        "text-main": "#111813",
-        "text-secondary": "#4B5563",
-        "text-sub": "#475569",
+        "surface-dark": "#342E4A",
+        "soft-cream": "#FDF9F3",
+        "accent-blue": "#E8F0F8",
+        "warm-blue": "#7AADE0",
+        "warm-blue-light": "#EBF3FA",
+        "warm-coral": "#E8937A",
+        "warm-coral-light": "#FDF0EC",
+        "warm-sage": "#7DB59A",
+        "warm-sage-light": "#EBF5F0",
+        "warm-gold": "#E8C36A",
+        "warm-gold-light": "#FDF7E8",
+        "text-main": "#2C2839",
+        "text-secondary": "#6B6580",
+        "text-sub": "#7A748E",
       },
       fontFamily: {
-        "display": ["Lexend", "sans-serif"]
+        "display": ["Nunito", "Lexend", "sans-serif"]
       },
-      borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "2xl": "1.25rem", "full": "9999px"},
+      borderRadius: {"DEFAULT": "0.75rem", "lg": "1rem", "xl": "1.25rem", "2xl": "1.5rem", "full": "9999px"},
       boxShadow: {
-        "soft": "0 4px 20px -2px rgba(0, 0, 0, 0.05)",
-        "card": "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
+        "soft": "0 4px 24px -4px rgba(123, 108, 168, 0.12)",
+        "card": "0 2px 8px rgba(123, 108, 168, 0.06), 0 1px 3px rgba(0,0,0,0.04)",
+        "glow": "0 0 20px rgba(123, 108, 168, 0.15)",
       }
     },
   },
 }
 </script>
 <style>
-body { font-family: 'Lexend', sans-serif; min-height: 100dvh; }
+body { font-family: 'Nunito', 'Lexend', sans-serif; min-height: 100dvh; }
 .page { display: none; opacity: 0; }
-.page.active { display: block; animation: fadeIn 0.35s ease forwards; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-.nav-btn.active { color: #19e65e; }
+.page.active { display: block; animation: fadeIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.nav-btn.active { color: #7B6CA8; }
 .nav-btn.active .nav-dot { opacity: 1; }
 .nav-dot { opacity: 0; transition: opacity 0.2s; }
 .scrollbar-hide::-webkit-scrollbar, .no-scrollbar::-webkit-scrollbar { display: none; }
 .scrollbar-hide, .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 /* Range slider */
 input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
-input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 24px; width: 24px; border-radius: 50%; background: #19e65e; cursor: pointer; margin-top: -10px; box-shadow: 0 2px 4px rgba(0,0,0,0.15); border: 2px solid white; }
-input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; cursor: pointer; background: #e5e7eb; border-radius: 2px; }
-input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: #19e65e; cursor: pointer; border: 2px solid white; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 28px; width: 28px; border-radius: 50%; background: linear-gradient(135deg, #7B6CA8, #9B8EC4); cursor: pointer; margin-top: -12px; box-shadow: 0 3px 8px rgba(123, 108, 168, 0.3); border: 3px solid white; }
+input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 5px; cursor: pointer; background: linear-gradient(90deg, #E8E1F5, #F3F0FA); border-radius: 3px; }
+input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #7B6CA8, #9B8EC4); cursor: pointer; border: 3px solid white; }
 .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
 .accordion-body.open { max-height: 500px; }
 .font-variation-fill { font-variation-settings: 'FILL' 1; }
+/* Emotion colors inspired by How We Feel */
+.emotion-pleasant-high { background: linear-gradient(135deg, #F2CC6B, #F5D98A); }
+.emotion-pleasant-low { background: linear-gradient(135deg, #7DB59A, #99CCAF); }
+.emotion-unpleasant-high { background: linear-gradient(135deg, #E8937A, #EDA995); }
+.emotion-unpleasant-low { background: linear-gradient(135deg, #7AADE0, #99C3E8); }
+/* Soft pulse animation for wellness elements */
+@keyframes softPulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.03); opacity: 0.9; } }
+.soft-pulse { animation: softPulse 3s ease-in-out infinite; }
+/* Warm gradient text */
+.text-gradient-warm { background: linear-gradient(135deg, #7B6CA8, #E8937A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 </style>
 </head>
 
-<body class="bg-soft-cream text-text-main min-h-screen flex flex-col font-display antialiased selection:bg-primary/30">
+<body class="bg-soft-cream text-text-main min-h-screen flex flex-col font-display antialiased selection:bg-primary/20">
 
 <!-- ========== UNIFIED HEADER ========== -->
-<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 px-4 py-3">
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-purple-50 px-4 py-3">
   <div class="flex items-center justify-between max-w-lg mx-auto">
-    <button onclick="navigateTo('home')" class="flex items-center gap-2 cursor-pointer">
-      <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-        <span class="material-symbols-outlined text-[20px]">local_pharmacy</span>
+    <button onclick="navigateTo('home')" class="flex items-center gap-2.5 cursor-pointer">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/20 to-warm-coral/10 flex items-center justify-center text-primary">
+        <span class="material-symbols-outlined text-[20px]">spa</span>
       </div>
       <div>
-        <h1 class="font-bold text-sm leading-tight text-text-main">Mandeep</h1>
-        <p class="text-[10px] font-medium text-primary uppercase tracking-wider">Homeo Clinic</p>
+        <h1 class="font-extrabold text-sm leading-tight text-text-main">Mandeep</h1>
+        <p class="text-[10px] font-semibold text-primary uppercase tracking-wider">Wellness Clinic</p>
       </div>
     </button>
     <div class="flex items-center gap-3">
       <!-- Language Toggle -->
-      <div class="flex bg-gray-100 rounded-full p-0.5 h-8 items-center">
+      <div class="flex bg-primary-soft rounded-full p-0.5 h-8 items-center">
         <button id="btn-en" onclick="setLang('en')" class="px-2.5 text-[11px] font-bold rounded-full bg-white shadow-sm text-text-main h-full flex items-center transition-all">EN</button>
-        <button id="btn-pa" onclick="setLang('pa')" class="px-2.5 text-[11px] font-medium text-gray-400 h-full flex items-center transition-all">PA</button>
+        <button id="btn-pa" onclick="setLang('pa')" class="px-2.5 text-[11px] font-medium text-text-sub h-full flex items-center transition-all">PA</button>
       </div>
       <!-- Book CTA -->
-      <button onclick="navigateTo('contact')" class="bg-primary hover:bg-primary-dark text-black h-8 px-3 rounded-full flex items-center gap-1 transition-colors text-xs font-bold active:scale-95">
-        <span class="material-symbols-outlined text-[16px]">calendar_month</span>
+      <button onclick="navigateTo('contact')" class="bg-gradient-to-r from-primary to-warm-coral hover:opacity-90 text-white h-8 px-3.5 rounded-full flex items-center gap-1 transition-all text-xs font-bold active:scale-95 shadow-sm">
+        <span class="material-symbols-outlined text-[16px]">favorite</span>
         <span class="hidden sm:inline">Book</span>
       </button>
     </div>
@@ -110,14 +127,19 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
 <div id="page-home" class="page active">
   <!-- Hero -->
   <section class="p-4">
-    <div class="relative w-full rounded-2xl overflow-hidden bg-background-dark shadow-soft group">
-      <div class="absolute inset-0 bg-cover bg-center opacity-70 transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDrXUpRe_5B_PAhnV-aaQqevDs2_gnxsyqpwa7sIVwl4gYyZPlNIRjnsR-k5xximtYS25Eik2swJYwiSRjHP3imflgV90rjjwww5KCRnwzzVd08DouDDwgxVnAxd4qw6O48Es-Grgjb8C_dpVCNQmEJh7mFnOe6xR_95IGDG-BdCA51B0Q6ljml0UDgJxws98jmcZbRcsMsNe7ZfNvDsKf3H5Hep968QpW5gdzNEN780JPSLNuWAQ3krFYoSnIkfUJVNyX-BoMQ6-M');"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-      <div class="relative z-10 p-6 pt-32 flex flex-col items-start gap-3">
-        <span class="inline-block px-3 py-1 bg-primary/90 text-black text-[10px] font-bold uppercase tracking-wider rounded-full backdrop-blur-sm" data-i18n="hero.badge">Pediatric Care</span>
-        <h2 class="text-white text-2xl font-bold leading-tight" data-i18n="hero.title">Natural, Effective, and Long-Term Solutions for Neurodiverse Children</h2>
-        <p class="text-gray-100 text-sm font-light leading-relaxed max-w-[90%]" data-i18n="hero.sub">Holistic homeopathy for long-term health and gentle pediatric care.</p>
-        <button onclick="navigateTo('contact')" class="mt-2 bg-white text-text-main hover:bg-gray-100 px-5 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 transition-all active:scale-95">
+    <div class="relative w-full rounded-2xl overflow-hidden shadow-soft group">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary via-[#9B8EC4] to-warm-coral"></div>
+      <div class="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-overlay transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDrXUpRe_5B_PAhnV-aaQqevDs2_gnxsyqpwa7sIVwl4gYyZPlNIRjnsR-k5xximtYS25Eik2swJYwiSRjHP3imflgV90rjjwww5KCRnwzzVd08DouDDwgxVnAxd4qw6O48Es-Grgjb8C_dpVCNQmEJh7mFnOe6xR_95IGDG-BdCA51B0Q6ljml0UDgJxws98jmcZbRcsMsNe7ZfNvDsKf3H5Hep968QpW5gdzNEN780JPSLNuWAQ3krFYoSnIkfUJVNyX-BoMQ6-M');"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+      <!-- Decorative emotion circles -->
+      <div class="absolute top-6 right-6 w-16 h-16 rounded-full bg-warm-gold/30 blur-xl"></div>
+      <div class="absolute top-20 right-16 w-10 h-10 rounded-full bg-warm-sage/30 blur-lg"></div>
+      <div class="absolute bottom-20 right-8 w-12 h-12 rounded-full bg-warm-coral/30 blur-lg"></div>
+      <div class="relative z-10 p-6 pt-36 flex flex-col items-start gap-3">
+        <span class="inline-block px-3 py-1.5 bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider rounded-full backdrop-blur-md border border-white/20" data-i18n="hero.badge">Pediatric Care</span>
+        <h2 class="text-white text-2xl font-extrabold leading-tight" data-i18n="hero.title">Natural, Effective, and Long-Term Solutions for Neurodiverse Children</h2>
+        <p class="text-white/85 text-sm font-light leading-relaxed max-w-[90%]" data-i18n="hero.sub">Holistic homeopathy for long-term health and gentle pediatric care.</p>
+        <button onclick="navigateTo('contact')" class="mt-2 bg-white text-primary hover:bg-white/90 px-5 py-3 rounded-xl text-sm font-bold flex items-center gap-2 transition-all active:scale-95 shadow-lg">
           <span data-i18n="hero.cta">Start Consultation</span> <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
         </button>
       </div>
@@ -125,67 +147,67 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
   </section>
   <!-- Doctor Card -->
   <section class="px-4 pb-2">
-    <div class="bg-white rounded-xl p-4 shadow-card border border-gray-100 flex items-center gap-4 cursor-pointer hover:border-primary/40 transition-colors" onclick="navigateTo('about')">
+    <div class="bg-white rounded-2xl p-4 shadow-card border border-purple-50 flex items-center gap-4 cursor-pointer hover:border-primary/30 hover:shadow-glow transition-all duration-300" onclick="navigateTo('about')">
       <div class="relative shrink-0">
-        <div class="w-16 h-16 rounded-full bg-gray-200 bg-cover bg-center border-2 border-primary" style="background-image: url('./assets/Mandeep-Kaur-e1770101310572.jpg');"></div>
-        <div class="absolute -bottom-1 -right-1 bg-primary text-black text-[10px] font-bold px-1.5 py-0.5 rounded-md border border-white">CAS</div>
+        <div class="w-16 h-16 rounded-2xl bg-gray-200 bg-cover bg-center border-2 border-primary/30 shadow-sm" style="background-image: url('./assets/Mandeep-Kaur-e1770101310572.jpg');"></div>
+        <div class="absolute -bottom-1 -right-1 bg-gradient-to-r from-primary to-primary-dark text-white text-[10px] font-bold px-1.5 py-0.5 rounded-lg border-2 border-white">CAS</div>
       </div>
       <div class="flex-1">
-        <h3 class="text-lg font-bold text-text-main">Dr. Mandeep Kaur</h3>
-        <p class="text-primary text-xs font-medium mb-1" data-i18n="doc.title">Autism Specialist & Homeopath</p>
-        <p class="text-gray-500 text-xs leading-snug line-clamp-2" data-i18n="doc.desc">Dedicated to helping children thrive through personalized holistic treatment plans.</p>
+        <h3 class="text-lg font-extrabold text-text-main">Dr. Mandeep Kaur</h3>
+        <p class="text-primary text-xs font-semibold mb-1" data-i18n="doc.title">Autism Specialist & Homeopath</p>
+        <p class="text-text-sub text-xs leading-snug line-clamp-2" data-i18n="doc.desc">Dedicated to helping children thrive through personalized holistic treatment plans.</p>
       </div>
-      <span class="material-symbols-outlined text-gray-300 text-[20px]">chevron_right</span>
+      <span class="material-symbols-outlined text-primary/30 text-[20px]">chevron_right</span>
     </div>
   </section>
   <!-- Trust Badges -->
   <section class="px-4 py-4">
-    <div class="flex gap-3 overflow-x-auto scrollbar-hide pb-2">
-      <div class="flex items-center gap-2 bg-accent-blue/50 px-3 py-2 rounded-lg shrink-0 border border-teal-100"><span class="material-symbols-outlined text-teal-700 text-[20px]">verified</span><span class="text-xs font-semibold text-teal-900" data-i18n="badge.qualified">Qualified</span></div>
-      <div class="flex items-center gap-2 bg-amber-50 px-3 py-2 rounded-lg shrink-0 border border-amber-100"><span class="material-symbols-outlined text-amber-600 text-[20px]">workspace_premium</span><span class="text-xs font-semibold text-amber-900" data-i18n="badge.trusted">Trusted</span></div>
-      <div class="flex items-center gap-2 bg-green-50 px-3 py-2 rounded-lg shrink-0 border border-green-100"><span class="material-symbols-outlined text-green-600 text-[20px]">schedule</span><span class="text-xs font-semibold text-green-900" data-i18n="badge.247">24/7 Available</span></div>
-      <div class="flex items-center gap-2 bg-orange-50 px-3 py-2 rounded-lg shrink-0 border border-orange-100"><span class="material-symbols-outlined text-orange-600 text-[20px]">spa</span><span class="text-xs font-semibold text-orange-900" data-i18n="badge.holistic">Holistic</span></div>
-      <div class="flex items-center gap-2 bg-blue-50 px-3 py-2 rounded-lg shrink-0 border border-blue-100"><span class="material-symbols-outlined text-blue-600 text-[20px]">public</span><span class="text-xs font-semibold text-blue-900" data-i18n="badge.worldwide">Worldwide</span></div>
-      <div class="flex items-center gap-2 bg-purple-50 px-3 py-2 rounded-lg shrink-0 border border-purple-100"><span class="material-symbols-outlined text-purple-600 text-[20px]">history</span><span class="text-xs font-semibold text-purple-900" data-i18n="badge.since">Since 2011</span></div>
+    <div class="flex gap-2.5 overflow-x-auto scrollbar-hide pb-2">
+      <div class="flex items-center gap-2 bg-primary-soft px-3.5 py-2.5 rounded-xl shrink-0 border border-primary/10"><span class="material-symbols-outlined text-primary text-[20px]">verified</span><span class="text-xs font-bold text-primary" data-i18n="badge.qualified">Qualified</span></div>
+      <div class="flex items-center gap-2 bg-warm-gold-light px-3.5 py-2.5 rounded-xl shrink-0 border border-warm-gold/20"><span class="material-symbols-outlined text-warm-gold text-[20px]">workspace_premium</span><span class="text-xs font-bold text-amber-800" data-i18n="badge.trusted">Trusted</span></div>
+      <div class="flex items-center gap-2 bg-warm-sage-light px-3.5 py-2.5 rounded-xl shrink-0 border border-warm-sage/20"><span class="material-symbols-outlined text-warm-sage text-[20px]">schedule</span><span class="text-xs font-bold text-emerald-800" data-i18n="badge.247">24/7 Available</span></div>
+      <div class="flex items-center gap-2 bg-warm-coral-light px-3.5 py-2.5 rounded-xl shrink-0 border border-warm-coral/20"><span class="material-symbols-outlined text-warm-coral text-[20px]">spa</span><span class="text-xs font-bold text-orange-900" data-i18n="badge.holistic">Holistic</span></div>
+      <div class="flex items-center gap-2 bg-warm-blue-light px-3.5 py-2.5 rounded-xl shrink-0 border border-warm-blue/20"><span class="material-symbols-outlined text-warm-blue text-[20px]">public</span><span class="text-xs font-bold text-blue-900" data-i18n="badge.worldwide">Worldwide</span></div>
+      <div class="flex items-center gap-2 bg-primary-light px-3.5 py-2.5 rounded-xl shrink-0 border border-primary/15"><span class="material-symbols-outlined text-primary text-[20px]">history</span><span class="text-xs font-bold text-primary-dark" data-i18n="badge.since">Since 2011</span></div>
     </div>
   </section>
   <!-- Quick Actions -->
   <section class="px-4 py-2">
-    <h3 class="text-base font-bold text-text-main mb-4 flex items-center gap-2"><span class="w-1 h-5 bg-primary rounded-full"></span><span data-i18n="quick.title">Quick Actions</span></h3>
+    <h3 class="text-base font-extrabold text-text-main mb-4 flex items-center gap-2"><span class="w-1.5 h-5 bg-gradient-to-b from-primary to-warm-coral rounded-full"></span><span data-i18n="quick.title">Quick Actions</span></h3>
     <div class="grid grid-cols-2 gap-3">
-      <button onclick="navigateTo('services')" class="group bg-white p-4 rounded-xl shadow-card border border-gray-100 hover:border-primary/50 transition-colors flex flex-col gap-3 text-left">
-        <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center group-hover:bg-primary/20 transition-colors"><span class="material-symbols-outlined text-green-600 text-[24px]">medical_services</span></div>
-        <div><h4 class="font-bold text-sm text-text-main" data-i18n="quick.services">Our Services</h4><p class="text-[11px] text-gray-500 mt-0.5" data-i18n="quick.services.sub">Treatments & Care</p></div>
+      <button onclick="navigateTo('services')" class="group bg-white p-4 rounded-2xl shadow-card border border-purple-50 hover:border-primary/30 hover:shadow-glow transition-all duration-300 flex flex-col gap-3 text-left">
+        <div class="w-11 h-11 rounded-xl bg-primary-soft flex items-center justify-center group-hover:bg-primary/15 transition-colors"><span class="material-symbols-outlined text-primary text-[24px]">self_improvement</span></div>
+        <div><h4 class="font-bold text-sm text-text-main" data-i18n="quick.services">Our Services</h4><p class="text-[11px] text-text-sub mt-0.5" data-i18n="quick.services.sub">Treatments & Care</p></div>
       </button>
-      <button onclick="navigateTo('about')" class="group bg-white p-4 rounded-xl shadow-card border border-gray-100 hover:border-primary/50 transition-colors flex flex-col gap-3 text-left">
-        <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors"><span class="material-symbols-outlined text-blue-600 text-[24px]">person_check</span></div>
-        <div><h4 class="font-bold text-sm text-text-main" data-i18n="quick.about">About Doctor</h4><p class="text-[11px] text-gray-500 mt-0.5" data-i18n="quick.about.sub">Experience & Bio</p></div>
+      <button onclick="navigateTo('about')" class="group bg-white p-4 rounded-2xl shadow-card border border-purple-50 hover:border-warm-blue/30 hover:shadow-glow transition-all duration-300 flex flex-col gap-3 text-left">
+        <div class="w-11 h-11 rounded-xl bg-warm-blue-light flex items-center justify-center group-hover:bg-warm-blue/15 transition-colors"><span class="material-symbols-outlined text-warm-blue text-[24px]">person_check</span></div>
+        <div><h4 class="font-bold text-sm text-text-main" data-i18n="quick.about">About Doctor</h4><p class="text-[11px] text-text-sub mt-0.5" data-i18n="quick.about.sub">Experience & Bio</p></div>
       </button>
-      <button onclick="navigateTo('resources')" class="group bg-white p-4 rounded-xl shadow-card border border-gray-100 hover:border-primary/50 transition-colors flex flex-col gap-3 text-left">
-        <div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center group-hover:bg-purple-100 transition-colors"><span class="material-symbols-outlined text-purple-600 text-[24px]">menu_book</span></div>
-        <div><h4 class="font-bold text-sm text-text-main" data-i18n="quick.resources">Resources</h4><p class="text-[11px] text-gray-500 mt-0.5" data-i18n="quick.resources.sub">Guides & FAQs</p></div>
+      <button onclick="navigateTo('resources')" class="group bg-white p-4 rounded-2xl shadow-card border border-purple-50 hover:border-warm-gold/30 hover:shadow-glow transition-all duration-300 flex flex-col gap-3 text-left">
+        <div class="w-11 h-11 rounded-xl bg-warm-gold-light flex items-center justify-center group-hover:bg-warm-gold/15 transition-colors"><span class="material-symbols-outlined text-warm-gold text-[24px]">emoji_objects</span></div>
+        <div><h4 class="font-bold text-sm text-text-main" data-i18n="quick.resources">Resources</h4><p class="text-[11px] text-text-sub mt-0.5" data-i18n="quick.resources.sub">Guides & FAQs</p></div>
       </button>
-      <button onclick="navigateTo('welfare')" class="group bg-white p-4 rounded-xl shadow-card border border-gray-100 hover:border-primary/50 transition-colors flex flex-col gap-3 text-left">
-        <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center group-hover:bg-orange-100 transition-colors"><span class="material-symbols-outlined text-orange-600 text-[24px]">favorite</span></div>
-        <div><h4 class="font-bold text-sm text-text-main" data-i18n="quick.welfare">Welfare</h4><p class="text-[11px] text-gray-500 mt-0.5" data-i18n="quick.welfare.sub">Community Impact</p></div>
+      <button onclick="navigateTo('welfare')" class="group bg-white p-4 rounded-2xl shadow-card border border-purple-50 hover:border-warm-coral/30 hover:shadow-glow transition-all duration-300 flex flex-col gap-3 text-left">
+        <div class="w-11 h-11 rounded-xl bg-warm-coral-light flex items-center justify-center group-hover:bg-warm-coral/15 transition-colors"><span class="material-symbols-outlined text-warm-coral text-[24px]">favorite</span></div>
+        <div><h4 class="font-bold text-sm text-text-main" data-i18n="quick.welfare">Welfare</h4><p class="text-[11px] text-text-sub mt-0.5" data-i18n="quick.welfare.sub">Community Impact</p></div>
       </button>
     </div>
   </section>
   <!-- Free 15-Min Inquiry Call CTA -->
   <section class="px-4 mt-2 mb-2">
-    <a href="tel:+13606036425" class="block relative overflow-hidden rounded-xl bg-gradient-to-r from-primary to-emerald-500 p-4 shadow-lg active:scale-[0.98] transition-transform">
+    <a href="tel:+13606036425" class="block relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary via-[#9B8EC4] to-warm-coral p-5 shadow-lg active:scale-[0.98] transition-transform">
       <div class="absolute -right-8 -top-8 w-28 h-28 bg-white/10 rounded-full blur-xl"></div>
       <div class="absolute -left-4 -bottom-6 w-20 h-20 bg-white/10 rounded-full blur-lg"></div>
       <div class="relative z-10 flex items-center gap-4">
-        <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shrink-0">
+        <div class="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center shrink-0">
           <span class="material-symbols-outlined text-white text-[28px]">phone_in_talk</span>
         </div>
         <div class="flex-1">
           <div class="flex items-center gap-2 mb-1">
-            <span class="bg-white/20 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider" data-i18n="cta.free">Free</span>
+            <span class="bg-white/25 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider" data-i18n="cta.free">Free</span>
             <span class="text-white/80 text-[10px] font-medium" data-i18n="cta.noobligation">No obligation</span>
           </div>
-          <h3 class="text-white font-bold text-base leading-tight" data-i18n="cta.15min">15-Minute Inquiry Call</h3>
+          <h3 class="text-white font-extrabold text-base leading-tight" data-i18n="cta.15min">15-Minute Inquiry Call</h3>
           <p class="text-white/80 text-xs mt-0.5" data-i18n="cta.15min.sub">Speak with Dr. Mandeep before booking</p>
         </div>
         <span class="material-symbols-outlined text-white/60 text-[20px]">arrow_forward</span>
@@ -194,10 +216,10 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
   </section>
   <!-- Patient Testimonials -->
   <section class="px-4 py-4">
-    <h3 class="text-base font-bold text-text-main mb-4 flex items-center gap-2"><span class="w-1 h-5 bg-primary rounded-full"></span><span data-i18n="testimonials.title">Patient Stories</span></h3>
+    <h3 class="text-base font-extrabold text-text-main mb-4 flex items-center gap-2"><span class="w-1.5 h-5 bg-gradient-to-b from-warm-coral to-warm-gold rounded-full"></span><span data-i18n="testimonials.title">Patient Stories</span></h3>
     <div class="flex gap-3 overflow-x-auto pb-3 scrollbar-hide snap-x">
       <!-- Eunice Satelo -->
-      <div class="snap-center shrink-0 w-[280px] bg-white rounded-xl p-4 shadow-card border border-gray-100">
+      <div class="snap-center shrink-0 w-[280px] bg-white rounded-xl p-4 shadow-card border border-purple-50">
         <div class="flex items-center gap-1 mb-3">
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
@@ -206,13 +228,13 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
         </div>
         <p class="text-xs text-slate-600 leading-relaxed mb-3 line-clamp-4">"Dr. Mandeep Kaur is extremely knowledgeable and professional. I was welcomed into a clean, comfortable space. She is passionate about what she does and truly listens to each patient."</p>
-        <div class="flex items-center gap-2 pt-2 border-t border-gray-50">
-          <div class="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs font-bold">E</div>
+        <div class="flex items-center gap-2 pt-2 border-t border-purple-50/50">
+          <div class="w-7 h-7 rounded-full bg-primary-soft flex items-center justify-center text-primary text-xs font-bold">E</div>
           <div><p class="text-xs font-semibold text-slate-800">Eunice Satelo</p><p class="text-[10px] text-slate-400">Bellingham, USA</p></div>
         </div>
       </div>
       <!-- Ramandeep Kaur -->
-      <div class="snap-center shrink-0 w-[280px] bg-white rounded-xl p-4 shadow-card border border-gray-100">
+      <div class="snap-center shrink-0 w-[280px] bg-white rounded-xl p-4 shadow-card border border-purple-50">
         <div class="flex items-center gap-1 mb-3">
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
@@ -221,13 +243,13 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
         </div>
         <p class="text-xs text-slate-600 leading-relaxed mb-3 line-clamp-4">"After six months of treatment, my life experienced a complete transformation. With homeopathy and lifestyle changes, I reduced my dependence on medication and feel more energized."</p>
-        <div class="flex items-center gap-2 pt-2 border-t border-gray-50">
+        <div class="flex items-center gap-2 pt-2 border-t border-purple-50/50">
           <div class="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 text-xs font-bold">R</div>
           <div><p class="text-xs font-semibold text-slate-800">Ramandeep Kaur</p><p class="text-[10px] text-slate-400">Surrey, Canada</p></div>
         </div>
       </div>
       <!-- Priyanka Vashisht -->
-      <div class="snap-center shrink-0 w-[280px] bg-white rounded-xl p-4 shadow-card border border-gray-100">
+      <div class="snap-center shrink-0 w-[280px] bg-white rounded-xl p-4 shadow-card border border-purple-50">
         <div class="flex items-center gap-1 mb-3">
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
@@ -236,13 +258,13 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
         </div>
         <p class="text-xs text-slate-600 leading-relaxed mb-3 line-clamp-4">"Dr. Mandeep is warm and compassionate. She takes the time to understand your concerns and provides natural remedies that truly work. Highly recommend her holistic approach."</p>
-        <div class="flex items-center gap-2 pt-2 border-t border-gray-50">
+        <div class="flex items-center gap-2 pt-2 border-t border-purple-50/50">
           <div class="w-7 h-7 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 text-xs font-bold">P</div>
           <div><p class="text-xs font-semibold text-slate-800">Priyanka Vashisht</p><p class="text-[10px] text-slate-400">Rome, Italy</p></div>
         </div>
       </div>
       <!-- Inderjeet Kaur -->
-      <div class="snap-center shrink-0 w-[280px] bg-white rounded-xl p-4 shadow-card border border-gray-100">
+      <div class="snap-center shrink-0 w-[280px] bg-white rounded-xl p-4 shadow-card border border-purple-50">
         <div class="flex items-center gap-1 mb-3">
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
@@ -251,13 +273,13 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
         </div>
         <p class="text-xs text-slate-600 leading-relaxed mb-3 line-clamp-4">"My 6-year-old daughter had a speech delay. After homeopathic treatment with Dr. Mandeep, she has started speaking sentences. The improvement has been truly remarkable."</p>
-        <div class="flex items-center gap-2 pt-2 border-t border-gray-50">
+        <div class="flex items-center gap-2 pt-2 border-t border-purple-50/50">
           <div class="w-7 h-7 rounded-full bg-orange-50 flex items-center justify-center text-orange-600 text-xs font-bold">I</div>
           <div><p class="text-xs font-semibold text-slate-800">Inderjeet Kaur</p><p class="text-[10px] text-slate-400">Auburn, USA</p></div>
         </div>
       </div>
       <!-- Beant Sandhu -->
-      <div class="snap-center shrink-0 w-[280px] bg-white rounded-xl p-4 shadow-card border border-gray-100">
+      <div class="snap-center shrink-0 w-[280px] bg-white rounded-xl p-4 shadow-card border border-purple-50">
         <div class="flex items-center gap-1 mb-3">
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
@@ -266,13 +288,13 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
         </div>
         <p class="text-xs text-slate-600 leading-relaxed mb-3 line-clamp-4">"My son had speech trouble and hyperactivity. Dr. Mandeep follows up every 15 days. His hyperactivity has reduced significantly and speech has improved remarkably."</p>
-        <div class="flex items-center gap-2 pt-2 border-t border-gray-50">
+        <div class="flex items-center gap-2 pt-2 border-t border-purple-50/50">
           <div class="w-7 h-7 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 text-xs font-bold">B</div>
           <div><p class="text-xs font-semibold text-slate-800">Beant Sandhu</p><p class="text-[10px] text-slate-400">Melbourne, Australia</p></div>
         </div>
       </div>
       <!-- Avneet Kaur Sembhi -->
-      <div class="snap-center shrink-0 w-[280px] bg-white rounded-xl p-4 shadow-card border border-gray-100">
+      <div class="snap-center shrink-0 w-[280px] bg-white rounded-xl p-4 shadow-card border border-purple-50">
         <div class="flex items-center gap-1 mb-3">
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
@@ -281,7 +303,7 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
           <span class="material-symbols-outlined text-amber-400 text-[16px] font-variation-fill">star</span>
         </div>
         <p class="text-xs text-slate-600 leading-relaxed mb-3 line-clamp-4">"I was suffering from severe depression and anxiety. Dr. Mandeep's homeopathic treatment brought marked improvement. Her caring approach made all the difference in my recovery."</p>
-        <div class="flex items-center gap-2 pt-2 border-t border-gray-50">
+        <div class="flex items-center gap-2 pt-2 border-t border-purple-50/50">
           <div class="w-7 h-7 rounded-full bg-rose-50 flex items-center justify-center text-rose-600 text-xs font-bold">A</div>
           <div><p class="text-xs font-semibold text-slate-800">Avneet Kaur Sembhi</p><p class="text-[10px] text-slate-400">Edmonton, Canada</p></div>
         </div>
@@ -290,11 +312,11 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
   </section>
   <!-- CTA Banner -->
   <section class="px-4 mt-2 mb-2">
-    <div class="bg-gradient-to-r from-teal-800 to-green-900 rounded-xl p-5 relative overflow-hidden flex items-center justify-between">
-      <div class="absolute -left-4 -bottom-10 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
+    <div class="bg-gradient-to-r from-background-dark to-primary-dark rounded-2xl p-5 relative overflow-hidden flex items-center justify-between">
+      <div class="absolute -left-4 -bottom-10 w-24 h-24 bg-warm-coral/15 rounded-full blur-xl"></div>
       <div class="absolute right-10 -top-10 w-32 h-32 bg-primary/20 rounded-full blur-2xl"></div>
-      <div class="relative z-10"><h3 class="text-white font-bold text-lg" data-i18n="cta.ready">Ready to start?</h3><p class="text-gray-300 text-xs mt-1" data-i18n="cta.ready.sub">Schedule your first consultation today.</p></div>
-      <button onclick="navigateTo('contact')" class="relative z-10 bg-primary hover:bg-green-400 text-black font-bold py-2.5 px-5 rounded-lg text-sm shadow-lg transition-all active:scale-95 whitespace-nowrap" data-i18n="cta.booknow">Book Now</button>
+      <div class="relative z-10"><h3 class="text-white font-extrabold text-lg" data-i18n="cta.ready">Ready to start?</h3><p class="text-purple-200 text-xs mt-1" data-i18n="cta.ready.sub">Schedule your first consultation today.</p></div>
+      <button onclick="navigateTo('contact')" class="relative z-10 bg-white hover:bg-white/90 text-primary font-bold py-2.5 px-5 rounded-xl text-sm shadow-lg transition-all active:scale-95 whitespace-nowrap" data-i18n="cta.booknow">Book Now</button>
     </div>
   </section>
 </div>
@@ -303,10 +325,10 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
 <div id="page-about" class="page">
   <section class="flex flex-col items-center pt-8 pb-6 px-6">
     <div class="relative mb-4">
-      <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg ring-2 ring-primary/20">
+      <div class="w-32 h-32 rounded-3xl overflow-hidden border-4 border-white shadow-lg ring-2 ring-primary/20">
         <img alt="Dr. Mandeep Kaur" class="w-full h-full object-cover" src="./assets/Mandeep-Kaur-e1770101310572.jpg"/>
       </div>
-      <div class="absolute bottom-0 right-0 bg-primary text-white p-1.5 rounded-full border-2 border-white flex items-center justify-center shadow-sm">
+      <div class="absolute bottom-0 right-0 bg-gradient-to-r from-primary to-warm-coral text-white p-1.5 rounded-xl border-2 border-white flex items-center justify-center shadow-sm">
         <span class="material-symbols-outlined text-[16px]">verified</span>
       </div>
     </div>
@@ -320,24 +342,24 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
   <!-- Stats -->
   <section class="px-6 py-2">
     <div class="grid grid-cols-3 gap-3">
-      <div class="bg-green-50 rounded-xl p-3 text-center border border-green-100">
-        <p class="text-2xl font-bold text-green-700">80%</p>
-        <p class="text-[10px] font-semibold text-green-600 mt-1" data-i18n="about.stat1">Successful Operations</p>
+      <div class="bg-warm-sage-light rounded-2xl p-3 text-center border border-warm-sage/15">
+        <p class="text-2xl font-extrabold text-warm-sage">80%</p>
+        <p class="text-[10px] font-bold text-emerald-700 mt-1" data-i18n="about.stat1">Successful Operations</p>
       </div>
-      <div class="bg-blue-50 rounded-xl p-3 text-center border border-blue-100">
-        <p class="text-2xl font-bold text-blue-700">90%</p>
-        <p class="text-[10px] font-semibold text-blue-600 mt-1" data-i18n="about.stat2">Empathy for Patients</p>
+      <div class="bg-warm-coral-light rounded-2xl p-3 text-center border border-warm-coral/15">
+        <p class="text-2xl font-extrabold text-warm-coral">90%</p>
+        <p class="text-[10px] font-bold text-orange-800 mt-1" data-i18n="about.stat2">Empathy for Patients</p>
       </div>
-      <div class="bg-purple-50 rounded-xl p-3 text-center border border-purple-100">
-        <p class="text-2xl font-bold text-purple-700">100%</p>
-        <p class="text-[10px] font-semibold text-purple-600 mt-1" data-i18n="about.stat3">Hygiene Standards</p>
+      <div class="bg-primary-soft rounded-2xl p-3 text-center border border-primary/15">
+        <p class="text-2xl font-extrabold text-primary">100%</p>
+        <p class="text-[10px] font-bold text-primary-dark mt-1" data-i18n="about.stat3">Hygiene Standards</p>
       </div>
     </div>
   </section>
   <!-- Biography -->
   <section class="px-6 py-2">
     <h3 class="text-lg font-bold mb-3 text-text-main" data-i18n="about.bio">Biography</h3>
-    <div class="p-5 bg-background-light rounded-xl border border-slate-100 space-y-3">
+    <div class="p-5 bg-background-light rounded-xl border border-purple-50 space-y-3">
       <p class="text-slate-600 leading-relaxed text-sm" data-i18n="about.bio1">After attaining her homeopathic doctorate degree from India, Dr. Mandeep started her practice in 2011. As a licensed homeopathic doctor with professional training from qualified classical homeopathic specialists, she has dedicated her career to classical homeopathic treatment.</p>
       <p class="text-slate-600 leading-relaxed text-sm" data-i18n="about.bio2">She treats people of all ages &mdash; kids, teens, adults, and elderly &mdash; with non-invasive, holistic and natural methods. Her unique approach combines counseling and spiritual healing to help clients cure themselves on physical, mental, and emotional levels.</p>
       <p class="text-slate-600 leading-relaxed text-sm" data-i18n="about.bio3">Dr. Mandeep specializes in treating mental disorders, weight management, women&rsquo;s disorders, pain management, addictions, hereditary conditions, and menopausal health through personalized homeopathic care.</p>
@@ -352,15 +374,15 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
     <h3 class="text-lg font-bold mb-3 text-text-main" data-i18n="about.creds">Credentials</h3>
     <div class="flex flex-col gap-3">
       <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors">
-        <div class="flex-shrink-0 mt-0.5 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[16px]">check</span></div>
+        <div class="flex-shrink-0 mt-0.5 w-6 h-6 rounded-lg bg-primary-soft flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[16px]">check</span></div>
         <div><p class="font-semibold text-sm text-slate-800">Certified Autism Specialist (CAS)</p><p class="text-xs text-slate-500">International Credentialing Board</p></div>
       </div>
       <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors">
-        <div class="flex-shrink-0 mt-0.5 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[16px]">check</span></div>
+        <div class="flex-shrink-0 mt-0.5 w-6 h-6 rounded-lg bg-primary-soft flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[16px]">check</span></div>
         <div><p class="font-semibold text-sm text-slate-800">Bachelor of Homoeopathic Medicine and Surgery</p><p class="text-xs text-slate-500">Baba Farid University</p></div>
       </div>
       <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors">
-        <div class="flex-shrink-0 mt-0.5 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[16px]">check</span></div>
+        <div class="flex-shrink-0 mt-0.5 w-6 h-6 rounded-lg bg-primary-soft flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[16px]">check</span></div>
         <div><p class="font-semibold text-sm text-slate-800">PG Diploma in Hospital Administration</p><p class="text-xs text-slate-500">Medvarsity & Apollo</p></div>
       </div>
     </div>
@@ -402,14 +424,14 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
   </section>
   <!-- Global Reach -->
   <section class="px-6 pt-2 pb-6">
-    <div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 p-5">
-      <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl"></div>
+    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-soft to-warm-coral-light border border-primary/10 p-5">
+      <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-primary/15 rounded-full blur-2xl"></div>
       <div class="flex items-start gap-4 relative z-10">
-        <div class="bg-white p-2.5 rounded-lg shadow-sm text-primary"><span class="material-symbols-outlined">public</span></div>
+        <div class="bg-white p-2.5 rounded-xl shadow-sm text-primary"><span class="material-symbols-outlined">public</span></div>
         <div class="flex-1">
-          <h4 class="font-bold text-slate-900 mb-1" data-i18n="about.global">Online Services Worldwide</h4>
-          <p class="text-xs text-slate-600 leading-relaxed mb-3" data-i18n="about.global.sub">Comprehensive telehealth consultations available globally. We ship remedies directly to your doorstep.</p>
-          <button onclick="navigateTo('contact')" class="text-xs font-semibold text-primary hover:text-green-600 flex items-center gap-1 transition-colors"><span data-i18n="about.global.cta">Book Consultation</span> <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+          <h4 class="font-extrabold text-text-main mb-1" data-i18n="about.global">Online Services Worldwide</h4>
+          <p class="text-xs text-text-sub leading-relaxed mb-3" data-i18n="about.global.sub">Comprehensive telehealth consultations available globally. We ship remedies directly to your doorstep.</p>
+          <button onclick="navigateTo('contact')" class="text-xs font-bold text-primary hover:text-primary-dark flex items-center gap-1 transition-colors"><span data-i18n="about.global.cta">Book Consultation</span> <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
         </div>
       </div>
     </div>
@@ -422,15 +444,15 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
     <h2 class="text-xl font-bold mb-1" data-i18n="svc.title">Services & Specialties</h2>
     <p class="text-sm text-text-sub mb-5" data-i18n="svc.sub">Comprehensive holistic care tailored to your needs.</p>
     <!-- Approach Highlight -->
-    <div class="relative overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-black/5 mb-6">
-      <div class="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-3xl -mr-16 -mt-16"></div>
-      <div class="absolute bottom-0 left-0 w-24 h-24 bg-primary/10 rounded-full blur-2xl -ml-12 -mb-12"></div>
+    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-soft to-white shadow-md ring-1 ring-primary/10 mb-6">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-warm-coral/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
+      <div class="absolute bottom-0 left-0 w-24 h-24 bg-warm-sage/10 rounded-full blur-2xl -ml-12 -mb-12"></div>
       <div class="relative p-5">
         <div class="flex items-start justify-between mb-3">
-          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary"><span class="material-symbols-outlined">spa</span></span>
-          <span class="px-2 py-1 text-xs font-medium text-primary bg-primary/10 rounded-full" data-i18n="svc.approach">Our Approach</span>
+          <span class="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 text-primary"><span class="material-symbols-outlined">spa</span></span>
+          <span class="px-3 py-1 text-xs font-bold text-primary bg-primary/10 rounded-full" data-i18n="svc.approach">Our Approach</span>
         </div>
-        <h3 class="text-xl font-bold mb-2" data-i18n="svc.roots">Healing from the Roots</h3>
+        <h3 class="text-xl font-extrabold mb-2" data-i18n="svc.roots">Healing from the Roots</h3>
         <p class="text-sm text-text-sub leading-relaxed" data-i18n="svc.roots.sub">We target root causes without reliance on long-term allopathic medication. Safe, effective, and holistic care designed for lasting wellness.</p>
       </div>
     </div>
@@ -438,12 +460,12 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
     <div class="mb-5">
       <div class="flex items-center justify-between mb-3"><h3 class="text-base font-bold" data-i18n="svc.child">Child-Centered Healing</h3></div>
       <div class="grid grid-cols-2 gap-3">
-        <div class="flex flex-col items-start p-4 rounded-xl bg-white shadow-sm ring-1 ring-black/5 text-left group">
-          <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">psychology</span></div>
+        <div class="flex flex-col items-start p-4 rounded-xl bg-white shadow-sm ring-1 ring-primary/10 text-left group">
+          <div class="w-10 h-10 rounded-xl bg-warm-blue-light text-warm-blue flex items-center justify-center mb-3 group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">psychology</span></div>
           <span class="font-semibold text-sm mb-1" data-i18n="svc.adhd">ADHD & Autism</span><span class="text-xs text-text-sub" data-i18n="svc.adhd.sub">Focus & Behavioral support</span>
         </div>
-        <div class="flex flex-col items-start p-4 rounded-xl bg-white shadow-sm ring-1 ring-black/5 text-left group">
-          <div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">record_voice_over</span></div>
+        <div class="flex flex-col items-start p-4 rounded-xl bg-white shadow-sm ring-1 ring-primary/10 text-left group">
+          <div class="w-10 h-10 rounded-xl bg-warm-coral-light text-warm-coral flex items-center justify-center mb-3 group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">record_voice_over</span></div>
           <span class="font-semibold text-sm mb-1" data-i18n="svc.speech">Speech Delays</span><span class="text-xs text-text-sub" data-i18n="svc.speech.sub">Early intervention therapy</span>
         </div>
       </div>
@@ -452,12 +474,12 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
     <div class="mb-5">
       <div class="flex items-center justify-between mb-3"><h3 class="text-base font-bold" data-i18n="svc.mental">Holistic Mental Wellness</h3></div>
       <div class="grid grid-cols-2 gap-3">
-        <div class="flex flex-col items-start p-4 rounded-xl bg-white shadow-sm ring-1 ring-black/5 text-left group">
-          <div class="w-10 h-10 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">cloud</span></div>
+        <div class="flex flex-col items-start p-4 rounded-xl bg-white shadow-sm ring-1 ring-primary/10 text-left group">
+          <div class="w-10 h-10 rounded-xl bg-primary-soft text-primary flex items-center justify-center mb-3 group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">cloud</span></div>
           <span class="font-semibold text-sm mb-1" data-i18n="svc.anxiety">Anxiety & Stress</span><span class="text-xs text-text-sub" data-i18n="svc.anxiety.sub">Calming root therapies</span>
         </div>
-        <div class="flex flex-col items-start p-4 rounded-xl bg-white shadow-sm ring-1 ring-black/5 text-left group">
-          <div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">sentiment_dissatisfied</span></div>
+        <div class="flex flex-col items-start p-4 rounded-xl bg-white shadow-sm ring-1 ring-primary/10 text-left group">
+          <div class="w-10 h-10 rounded-xl bg-warm-blue-light text-warm-blue flex items-center justify-center mb-3 group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">sentiment_dissatisfied</span></div>
           <span class="font-semibold text-sm mb-1" data-i18n="svc.depression">Depression</span><span class="text-xs text-text-sub" data-i18n="svc.depression.sub">Natural mood balancing</span>
         </div>
       </div>
@@ -465,26 +487,26 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
     <!-- General Health -->
     <div class="mb-5">
       <h3 class="text-base font-bold mb-3" data-i18n="svc.general">General Health</h3>
-      <div class="p-4 rounded-xl bg-white shadow-sm ring-1 ring-black/5 flex items-center gap-4 mb-3">
-        <div class="w-12 h-12 rounded-full bg-pink-50 text-pink-600 flex items-center justify-center shrink-0"><span class="material-symbols-outlined">female</span></div>
+      <div class="p-4 rounded-xl bg-white shadow-sm ring-1 ring-primary/10 flex items-center gap-4 mb-3">
+        <div class="w-12 h-12 rounded-xl bg-warm-coral-light text-warm-coral flex items-center justify-center shrink-0"><span class="material-symbols-outlined">female</span></div>
         <div class="flex-1 min-w-0"><h4 class="font-semibold text-sm mb-0.5 truncate" data-i18n="svc.women">Women's Disorders</h4><p class="text-xs text-text-sub truncate" data-i18n="svc.women.sub">PCOS, Thyroid, Hormonal balance, Menopause</p></div>
-        <span class="material-symbols-outlined text-primary text-sm">arrow_forward_ios</span>
+        <span class="material-symbols-outlined text-warm-coral text-sm">arrow_forward_ios</span>
       </div>
       <div class="grid grid-cols-2 gap-3">
-        <div class="flex items-center gap-3 p-3 rounded-xl bg-white shadow-sm ring-1 ring-black/5 text-left">
-          <div class="w-8 h-8 rounded-full bg-red-50 text-red-600 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-lg">healing</span></div>
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-white shadow-sm ring-1 ring-primary/10 text-left">
+          <div class="w-8 h-8 rounded-lg bg-warm-coral-light text-warm-coral flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-lg">healing</span></div>
           <span class="font-semibold text-xs" data-i18n="svc.pain">Chronic Pain</span>
         </div>
-        <div class="flex items-center gap-3 p-3 rounded-xl bg-white shadow-sm ring-1 ring-black/5 text-left">
-          <div class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-lg">monitor_weight</span></div>
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-white shadow-sm ring-1 ring-primary/10 text-left">
+          <div class="w-8 h-8 rounded-lg bg-warm-sage-light text-warm-sage flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-lg">monitor_weight</span></div>
           <span class="font-semibold text-xs" data-i18n="svc.weight">Weight Mgmt</span>
         </div>
-        <div class="flex items-center gap-3 p-3 rounded-xl bg-white shadow-sm ring-1 ring-black/5 text-left">
-          <div class="w-8 h-8 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-lg">no_drinks</span></div>
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-white shadow-sm ring-1 ring-primary/10 text-left">
+          <div class="w-8 h-8 rounded-lg bg-warm-gold-light text-warm-gold flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-lg">no_drinks</span></div>
           <span class="font-semibold text-xs" data-i18n="svc.addictions">Addictions</span>
         </div>
-        <div class="flex items-center gap-3 p-3 rounded-xl bg-white shadow-sm ring-1 ring-black/5 text-left">
-          <div class="w-8 h-8 rounded-full bg-cyan-50 text-cyan-600 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-lg">genetics</span></div>
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-white shadow-sm ring-1 ring-primary/10 text-left">
+          <div class="w-8 h-8 rounded-lg bg-warm-blue-light text-warm-blue flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-lg">genetics</span></div>
           <span class="font-semibold text-xs" data-i18n="svc.hereditary">Hereditary</span>
         </div>
       </div>
@@ -492,16 +514,16 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
     <!-- Counseling & Spiritual Healing -->
     <div class="mb-5">
       <h3 class="text-base font-bold mb-3" data-i18n="svc.counseling">Counseling & Spiritual Healing</h3>
-      <div class="bg-gradient-to-br from-violet-50 to-rose-50 rounded-xl p-4 border border-violet-100 space-y-3">
+      <div class="bg-gradient-to-br from-primary-soft to-warm-coral-light rounded-2xl p-4 border border-primary/10 space-y-3">
         <div class="flex items-start gap-3">
-          <div class="w-10 h-10 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined">psychology_alt</span></div>
+          <div class="w-10 h-10 rounded-xl bg-primary/15 text-primary flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined">psychology_alt</span></div>
           <div>
             <h4 class="font-semibold text-sm text-slate-800 mb-0.5" data-i18n="svc.personal">Personal Counseling</h4>
             <p class="text-xs text-slate-500 leading-relaxed" data-i18n="svc.personal.sub">One-on-one sessions combining homeopathic insights with emotional and mental health guidance for holistic well-being.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
-          <div class="w-10 h-10 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined">diversity_1</span></div>
+          <div class="w-10 h-10 rounded-xl bg-warm-coral/15 text-warm-coral flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined">diversity_1</span></div>
           <div>
             <h4 class="font-semibold text-sm text-slate-800 mb-0.5" data-i18n="svc.spiritual">Spiritual Healing</h4>
             <p class="text-xs text-slate-500 leading-relaxed" data-i18n="svc.spiritual.sub">A unique approach to tackle stress and negativity, helping clients heal on physical, mental, and emotional levels.</p>
@@ -529,7 +551,7 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
     </div>
     <!-- All Ages Badge -->
     <div class="mb-4">
-      <div class="bg-primary/5 border border-primary/15 rounded-xl p-4 flex items-center gap-3">
+      <div class="bg-primary-soft border border-primary/10 rounded-2xl p-4 flex items-center gap-3">
         <span class="material-symbols-outlined text-primary text-[28px]">groups</span>
         <div class="flex-1">
           <h4 class="font-bold text-sm text-slate-800" data-i18n="svc.allages">We Treat All Ages</h4>
@@ -543,34 +565,64 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
 <!-- ===================== PAGE 4: PATIENT PORTAL & TRACKING ===================== -->
 <div id="page-resources" class="page">
   <section class="px-4 py-6 space-y-8">
-    <!-- Progress Tracker -->
-    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-      <div class="p-4 border-b border-gray-100 flex justify-between items-center bg-primary/5">
-        <div><h2 class="font-bold text-lg" data-i18n="res.progress">Daily Progress Log</h2><p class="text-xs text-gray-500" data-i18n="res.day">Day 4 of 15</p></div>
-        <div class="flex gap-1"><div class="h-2 w-2 rounded-full bg-primary"></div><div class="h-2 w-2 rounded-full bg-primary"></div><div class="h-2 w-2 rounded-full bg-primary"></div><div class="h-2 w-2 rounded-full bg-primary animate-pulse"></div><div class="h-2 w-2 rounded-full bg-gray-200"></div></div>
+    <!-- Emotional Wellness Check-in (How We Feel inspired) -->
+    <div class="bg-white rounded-2xl shadow-card border border-purple-50 overflow-hidden">
+      <div class="p-5 border-b border-purple-50 bg-gradient-to-r from-primary-soft to-warm-coral-light">
+        <div class="flex justify-between items-center">
+          <div>
+            <h2 class="font-extrabold text-lg text-text-main" data-i18n="res.progress">How Are You Feeling?</h2>
+            <p class="text-xs text-text-sub mt-0.5" data-i18n="res.day">Day 4 of 15</p>
+          </div>
+          <div class="flex gap-1.5">
+            <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
+            <div class="h-2.5 w-2.5 rounded-full bg-warm-coral"></div>
+            <div class="h-2.5 w-2.5 rounded-full bg-warm-gold"></div>
+            <div class="h-2.5 w-2.5 rounded-full bg-warm-sage soft-pulse"></div>
+            <div class="h-2.5 w-2.5 rounded-full bg-gray-200"></div>
+          </div>
+        </div>
       </div>
       <div class="p-5 space-y-6" id="tracker-form">
+        <!-- Emotion quadrant mini-grid -->
+        <div class="grid grid-cols-2 gap-2 mb-2">
+          <div class="emotion-pleasant-high rounded-xl p-3 text-center cursor-pointer hover:scale-[1.02] transition-transform border-2 border-transparent hover:border-warm-gold/50">
+            <span class="text-2xl">&#128516;</span>
+            <p class="text-[10px] font-bold text-amber-900 mt-1">Joyful</p>
+          </div>
+          <div class="emotion-pleasant-low rounded-xl p-3 text-center cursor-pointer hover:scale-[1.02] transition-transform border-2 border-transparent hover:border-warm-sage/50">
+            <span class="text-2xl">&#128524;</span>
+            <p class="text-[10px] font-bold text-emerald-900 mt-1">Peaceful</p>
+          </div>
+          <div class="emotion-unpleasant-high rounded-xl p-3 text-center cursor-pointer hover:scale-[1.02] transition-transform border-2 border-transparent hover:border-warm-coral/50">
+            <span class="text-2xl">&#128548;</span>
+            <p class="text-[10px] font-bold text-red-900 mt-1">Frustrated</p>
+          </div>
+          <div class="emotion-unpleasant-low rounded-xl p-3 text-center cursor-pointer hover:scale-[1.02] transition-transform border-2 border-transparent hover:border-warm-blue/50">
+            <span class="text-2xl">&#128532;</span>
+            <p class="text-[10px] font-bold text-blue-900 mt-1">Low</p>
+          </div>
+        </div>
         <div class="space-y-3">
-          <div class="flex justify-between items-end"><label class="text-sm font-semibold flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">psychology</span><span data-i18n="res.beh">Behavioral Calmness</span></label><span class="text-lg font-bold text-primary"><span id="beh-val">7</span><span class="text-xs text-gray-400 font-normal">/10</span></span></div>
+          <div class="flex justify-between items-end"><label class="text-sm font-bold flex items-center gap-2"><span class="material-symbols-outlined text-warm-sage text-[20px]">psychology</span><span data-i18n="res.beh">Behavioral Calmness</span></label><span class="text-lg font-extrabold text-primary"><span id="beh-val">7</span><span class="text-xs text-text-sub font-normal">/10</span></span></div>
           <input type="range" min="1" max="10" value="7" oninput="document.getElementById('beh-val').textContent=this.value" class="w-full"/>
-          <div class="flex justify-between text-[10px] text-gray-400 uppercase tracking-wide font-medium"><span data-i18n="res.restless">Restless</span><span data-i18n="res.calm">Calm</span></div>
+          <div class="flex justify-between text-[10px] text-text-sub uppercase tracking-wide font-bold"><span data-i18n="res.restless">Restless</span><span data-i18n="res.calm">Calm</span></div>
         </div>
         <div class="space-y-3">
-          <div class="flex justify-between items-end"><label class="text-sm font-semibold flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">record_voice_over</span><span data-i18n="res.speech">Speech Clarity</span></label><span class="text-lg font-bold text-primary"><span id="spc-val">5</span><span class="text-xs text-gray-400 font-normal">/10</span></span></div>
+          <div class="flex justify-between items-end"><label class="text-sm font-bold flex items-center gap-2"><span class="material-symbols-outlined text-warm-blue text-[20px]">record_voice_over</span><span data-i18n="res.speech">Speech Clarity</span></label><span class="text-lg font-extrabold text-primary"><span id="spc-val">5</span><span class="text-xs text-text-sub font-normal">/10</span></span></div>
           <input type="range" min="1" max="10" value="5" oninput="document.getElementById('spc-val').textContent=this.value" class="w-full"/>
-          <div class="flex justify-between text-[10px] text-gray-400 uppercase tracking-wide font-medium"><span data-i18n="res.unclear">Unclear</span><span data-i18n="res.fluent">Fluent</span></div>
+          <div class="flex justify-between text-[10px] text-text-sub uppercase tracking-wide font-bold"><span data-i18n="res.unclear">Unclear</span><span data-i18n="res.fluent">Fluent</span></div>
         </div>
         <div class="space-y-3">
-          <div class="flex justify-between items-end"><label class="text-sm font-semibold flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">speed</span><span data-i18n="res.hyp">Hyperactivity</span></label><span class="text-lg font-bold text-primary"><span id="hyp-val">6</span><span class="text-xs text-gray-400 font-normal">/10</span></span></div>
+          <div class="flex justify-between items-end"><label class="text-sm font-bold flex items-center gap-2"><span class="material-symbols-outlined text-warm-coral text-[20px]">speed</span><span data-i18n="res.hyp">Hyperactivity</span></label><span class="text-lg font-extrabold text-primary"><span id="hyp-val">6</span><span class="text-xs text-text-sub font-normal">/10</span></span></div>
           <input type="range" min="1" max="10" value="6" oninput="document.getElementById('hyp-val').textContent=this.value" class="w-full"/>
-          <div class="flex justify-between text-[10px] text-gray-400 uppercase tracking-wide font-medium"><span data-i18n="res.veryactive">Very Active</span><span data-i18n="res.reduced">Reduced</span></div>
+          <div class="flex justify-between text-[10px] text-text-sub uppercase tracking-wide font-bold"><span data-i18n="res.veryactive">Very Active</span><span data-i18n="res.reduced">Reduced</span></div>
         </div>
-        <button onclick="submitTracker()" class="w-full bg-primary hover:bg-primary-dark text-slate-900 font-bold py-3 px-4 rounded-lg shadow-sm active:scale-[0.98] transition-all flex items-center justify-center gap-2"><span class="material-symbols-outlined">save</span><span data-i18n="res.log">Log Today's Entry</span></button>
+        <button onclick="submitTracker()" class="w-full bg-gradient-to-r from-primary to-warm-coral hover:opacity-90 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg active:scale-[0.98] transition-all flex items-center justify-center gap-2"><span class="material-symbols-outlined">favorite</span><span data-i18n="res.log">Log Today's Check-in</span></button>
       </div>
-      <div id="tracker-success" class="hidden p-5 text-center">
-        <span class="material-symbols-outlined text-green-600 text-[40px]">task_alt</span>
-        <p class="text-sm font-bold text-green-800 mt-2" data-i18n="res.logged">Entry Logged!</p>
-        <p class="text-xs text-green-600 mt-1" data-i18n="res.review">Dr. Mandeep will review your progress.</p>
+      <div id="tracker-success" class="hidden p-8 text-center">
+        <div class="w-16 h-16 rounded-full bg-warm-sage-light flex items-center justify-center mx-auto mb-3"><span class="material-symbols-outlined text-warm-sage text-[36px]">check_circle</span></div>
+        <p class="text-base font-extrabold text-text-main mt-2" data-i18n="res.logged">Check-in Complete!</p>
+        <p class="text-xs text-text-sub mt-1" data-i18n="res.review">Dr. Mandeep will review your progress.</p>
       </div>
     </div>
     <!-- Diet & Lifestyle -->
@@ -578,13 +630,13 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
       <div class="flex items-center justify-between mb-4"><h3 class="text-lg font-bold" data-i18n="res.diet">Diet & Lifestyle</h3></div>
       <div class="grid grid-cols-2 gap-3">
         <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm group cursor-pointer">
-          <div class="h-10 w-10 rounded-full bg-orange-100 flex items-center justify-center mb-3 text-orange-600"><span class="material-symbols-outlined">restaurant_menu</span></div>
+          <div class="h-10 w-10 rounded-xl bg-warm-coral-light flex items-center justify-center mb-3 text-warm-coral"><span class="material-symbols-outlined">restaurant_menu</span></div>
           <h4 class="font-bold text-sm mb-1 group-hover:text-primary transition-colors" data-i18n="res.antiinflam">Anti-Inflammatory</h4>
           <p class="text-xs text-gray-500 mb-3 line-clamp-2" data-i18n="res.antiinflam.sub">Gut-friendly recipes for sensitive digestion.</p>
           <div class="flex items-center gap-1 text-[10px] font-bold text-gray-400 uppercase tracking-wide"><span class="material-symbols-outlined text-[14px]">picture_as_pdf</span>PDF Plan</div>
         </div>
         <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm group cursor-pointer">
-          <div class="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center mb-3 text-blue-600"><span class="material-symbols-outlined">water_drop</span></div>
+          <div class="h-10 w-10 rounded-xl bg-warm-blue-light flex items-center justify-center mb-3 text-warm-blue"><span class="material-symbols-outlined">water_drop</span></div>
           <h4 class="font-bold text-sm mb-1 group-hover:text-primary transition-colors" data-i18n="res.hydration">Hydration Guide</h4>
           <p class="text-xs text-gray-500 mb-3 line-clamp-2" data-i18n="res.hydration.sub">Daily water intake chart for kids.</p>
           <div class="flex items-center gap-1 text-[10px] font-bold text-gray-400 uppercase tracking-wide"><span class="material-symbols-outlined text-[14px]">picture_as_pdf</span>PDF Guide</div>
@@ -598,7 +650,7 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
         <div class="min-w-[240px] snap-center bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm">
           <div class="relative h-32 bg-gray-200 w-full group cursor-pointer">
             <img alt="Child playing with blocks" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIjkZ9UUnO0zSmZJ8af9FAILbURYDV_66AW_SHhOdSu0aqGYkz2KJxEHahXgb8E0hF-19YvcuodTNCr8roIUsDNk1q4QcsIaXLcNdB9U9pTfhUATapiLY19HLR5lOfsVqBBmwG9-dtaRUFvh6cKYjSiOXFYiWNSK0DJ7tGEdOCU3EiUIbs7PU7bG5WR53XSw2JBXED73XMvLzJMGn6eYLl8uQyytmkuXxKnCeJqHFRanQqlouddWgrrfejj5kfz1Iz-x-klPOh_g8"/>
-            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center"><div class="h-10 w-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg"><span class="material-symbols-outlined text-primary text-[24px] ml-1">play_arrow</span></div></div>
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center"><div class="h-10 w-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg"><span class="material-symbols-outlined text-primary text-[24px]">play_arrow</span></div></div>
             <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-1.5 py-0.5 rounded font-medium">05:24</div>
           </div>
           <div class="p-3"><h4 class="font-bold text-sm mb-1" data-i18n="res.finemotor">Fine Motor Skills</h4><p class="text-xs text-gray-500" data-i18n="res.finemotor.sub">Occupational Therapy basics.</p></div>
@@ -606,7 +658,7 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
         <div class="min-w-[240px] snap-center bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm">
           <div class="relative h-32 bg-gray-200 w-full group cursor-pointer">
             <img alt="Parent and child reading" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXkt62ECnHYzqmQ7Oh5YgQEk-rEQcNHro-yvNWe5ZEj4Up_hrcTSkAUHrCoZ3Y8NmOFFF4pBaDOAz9ujQ5useTEEeb1nziieNFSIf5qP9jcQKUKJHdATDv-8JtwXVFtLcGHpkI1A7i3LQnHX51NGTg7QodkcHbi0IS8ltAfNMbRYzYzIX7ayarZseGMBSQsxLhLBBZsOk7a2RWBreUsrnhKI71pgwWI4kKjDpizrql2zTk58Lv42QrNdIZRYLLWhUgCPVWJ_OGiGQ"/>
-            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center"><div class="h-10 w-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg"><span class="material-symbols-outlined text-primary text-[24px] ml-1">play_arrow</span></div></div>
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center"><div class="h-10 w-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg"><span class="material-symbols-outlined text-primary text-[24px]">play_arrow</span></div></div>
             <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-1.5 py-0.5 rounded font-medium">08:15</div>
           </div>
           <div class="p-3"><h4 class="font-bold text-sm mb-1" data-i18n="res.speechex">Speech Exercises</h4><p class="text-xs text-gray-500" data-i18n="res.speechex.sub">Vocal warm-ups for daily practice.</p></div>
@@ -614,13 +666,13 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
       </div>
     </div>
     <!-- Mental Wellness Audio -->
-    <div class="bg-primary-light/30 rounded-xl p-5 border border-primary/10 flex items-center justify-between gap-4">
+    <div class="bg-gradient-to-br from-primary-soft to-warm-blue-light rounded-2xl p-5 border border-primary/10 flex items-center justify-between gap-4">
       <div class="flex-1">
-        <div class="flex items-center gap-2 mb-2 text-primary-dark"><span class="material-symbols-outlined text-[20px]">self_improvement</span><span class="text-xs font-bold uppercase tracking-wider" data-i18n="res.wellness">Mental Wellness</span></div>
-        <h3 class="font-bold text-lg leading-tight mb-1" data-i18n="res.evening">Evening Calm</h3>
-        <p class="text-xs text-gray-600" data-i18n="res.meditation">Guided meditation for better sleep.</p>
+        <div class="flex items-center gap-2 mb-2 text-primary"><span class="material-symbols-outlined text-[20px]">self_improvement</span><span class="text-xs font-bold uppercase tracking-wider" data-i18n="res.wellness">Mental Wellness</span></div>
+        <h3 class="font-extrabold text-lg leading-tight mb-1 text-text-main" data-i18n="res.evening">Evening Calm</h3>
+        <p class="text-xs text-text-sub" data-i18n="res.meditation">Guided meditation for better sleep.</p>
       </div>
-      <button class="h-12 w-12 rounded-full bg-primary text-slate-900 flex items-center justify-center shadow-lg shadow-primary/20 active:scale-95 transition-transform shrink-0"><span class="material-symbols-outlined text-[28px] ml-1">play_arrow</span></button>
+      <button class="h-14 w-14 rounded-2xl bg-gradient-to-br from-primary to-warm-blue text-white flex items-center justify-center shadow-lg shadow-primary/25 active:scale-95 transition-transform shrink-0"><span class="material-symbols-outlined text-[28px] ml-1">play_arrow</span></button>
     </div>
   </section>
 </div>
@@ -630,21 +682,21 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
   <section class="px-4 pt-6 pb-2">
     <h2 class="text-xl font-bold tracking-tight mb-4" data-i18n="wel.title">Our Community Impact</h2>
     <div class="flex overflow-x-auto gap-4 pb-4 scrollbar-hide snap-x snap-mandatory">
-      <div class="snap-center shrink-0 w-[280px] bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+      <div class="snap-center shrink-0 w-[280px] bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50">
         <div class="h-40 bg-slate-200 relative group">
           <img alt="COVID relief camp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNtxnAeZrkfUxcla7BwnqrLIGrw4eZkEpvSCG3so0rII6VCYhppabWW8JGc7zJCmtvTK2wXWbRbEkMQDVGn24Wxe88f0zXUC77b7I23ez--5oX67MKwx5uAHpMVSP087uJD-jVQJS5g8eHsR949RdIw152ezwUcbvLn2IGd9CF8GgKd8HSotjZjOhqkn5jmMRxlEybya1nlQgwvj2XZNmPvrDA_aCqNL0_ZisZMwpTgUCG9JTgO0kEoxk7VG1Dp4MX3nTzPgCVjf8"/>
           <div class="absolute top-3 left-3 bg-primary/90 text-white text-xs font-bold px-2 py-1 rounded-md">COVID-19 Relief</div>
         </div>
         <div class="p-4"><h3 class="font-bold text-lg mb-1" data-i18n="wel.immunity">Immunity Drives</h3><p class="text-sm text-slate-500 leading-relaxed line-clamp-2" data-i18n="wel.immunity.sub">Distributed free immunity boosters to over 5,000 families during the peak of the pandemic.</p></div>
       </div>
-      <div class="snap-center shrink-0 w-[280px] bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+      <div class="snap-center shrink-0 w-[280px] bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50">
         <div class="h-40 bg-slate-200 relative group">
           <img alt="Child at neurodiversity camp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_aqDELwOVi0NgX4IIPV2GMd4sOAujIAtpxSnY6TcFwmEAM2ZMwmIL_tGzhvFyk7IQjA4yHkMeJEmN1NLvnn1Z-3f24SWLnyqZTQLTGHRruiEPTY4ojyXITVonhxCRnjYwya-9ncI7rXtnPuZIwomXXWwso7_Tm7y4N7Ym_rSMHmy2zgnLaZZipAOcFW1WmzsHqK567RImcjZ3uvxQlS1tr2X5lLO2Go-Oy8zX9BjIz3BoUnWa8NHlw7oPs-pSgFnHc7_GYot39oA"/>
           <div class="absolute top-3 left-3 bg-blue-500/90 text-white text-xs font-bold px-2 py-1 rounded-md">Special Needs</div>
         </div>
         <div class="p-4"><h3 class="font-bold text-lg mb-1" data-i18n="wel.camps">Neurodiversity Camps</h3><p class="text-sm text-slate-500 leading-relaxed line-clamp-2" data-i18n="wel.camps.sub">Monthly free diagnosis and therapy planning camps for children with ASD and ADHD.</p></div>
       </div>
-      <div class="snap-center shrink-0 w-[280px] bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+      <div class="snap-center shrink-0 w-[280px] bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50">
         <div class="h-40 bg-slate-200 relative group">
           <img alt="Public awareness seminar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnpDoDPCQcyYaBtkhckUOy9ipxLMn0I6WP4sg62pJdxG9iuInPR6wKuz4HpPBqfMufNnGfYJEOIwOpQAeOGCIRpSGcDk4xLKM41cgeeuCKxm5hGgIA0fK0p7fnVYdv9M-GpTj8bShYmUmgje-Fuawnlu4dH0zOvx-G6vdU-ZHjU7p3tVFxBu0TA2Q_00XtbiHXE27P-dDlOEyX1PbedHYHm2vtJ3AjFDVKUemingAZPjNmGCpWP6vKibrJ1oRtWFAtyl9rYC1xgsI"/>
           <div class="absolute top-3 left-3 bg-purple-500/90 text-white text-xs font-bold px-2 py-1 rounded-md">Awareness</div>
@@ -655,30 +707,30 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
   </section>
   <!-- Partnership -->
   <section class="px-4 py-4">
-    <div class="bg-primary/10 rounded-2xl p-6 border border-primary/20">
+    <div class="bg-gradient-to-br from-primary-soft to-warm-gold-light rounded-2xl p-6 border border-primary/10">
       <div class="flex items-center gap-3 mb-3">
-        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-sm"><span class="material-symbols-outlined text-2xl">handshake</span></div>
+        <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-primary shadow-sm"><span class="material-symbols-outlined text-2xl">handshake</span></div>
         <h2 class="text-lg font-bold" data-i18n="wel.partner">Partner with Mandeep Clinic</h2>
       </div>
       <p class="text-sm text-slate-700 leading-relaxed mb-4" data-i18n="wel.partner.sub">We offer commission-based paid partnerships and collaboration models, focusing on trust, cultural connection, and the high demand for holistic care.</p>
       <div class="grid grid-cols-2 gap-3">
-        <div class="bg-white p-3 rounded-lg border border-primary/10 flex flex-col items-center text-center gap-1"><span class="material-symbols-outlined text-primary text-2xl">medical_services</span><span class="text-xs font-medium" data-i18n="wel.referral">Referral System</span></div>
-        <div class="bg-white p-3 rounded-lg border border-primary/10 flex flex-col items-center text-center gap-1"><span class="material-symbols-outlined text-primary text-2xl">school</span><span class="text-xs font-medium" data-i18n="wel.research">Joint Research</span></div>
+        <div class="bg-white p-3 rounded-xl border border-primary/10 flex flex-col items-center text-center gap-1"><span class="material-symbols-outlined text-primary text-2xl">medical_services</span><span class="text-xs font-bold" data-i18n="wel.referral">Referral System</span></div>
+        <div class="bg-white p-3 rounded-xl border border-primary/10 flex flex-col items-center text-center gap-1"><span class="material-symbols-outlined text-primary text-2xl">school</span><span class="text-xs font-bold" data-i18n="wel.research">Joint Research</span></div>
       </div>
     </div>
   </section>
   <!-- Lead Capture Form -->
   <section class="px-4 pb-6">
-    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+    <div class="bg-white rounded-2xl p-6 shadow-sm border border-purple-50">
       <h3 class="text-xl font-bold mb-1" data-i18n="wel.collab">Collaboration Request</h3>
       <p class="text-sm text-slate-500 mb-5" data-i18n="wel.collab.sub">Start a conversation about how we can work together.</p>
       <form id="partner-form" class="space-y-4">
         <div class="relative"><div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400"><span class="material-symbols-outlined text-lg">person</span></div><input class="block w-full pl-10 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary placeholder-slate-400" placeholder="Your Name" type="text"/></div>
         <div class="relative"><div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400"><span class="material-symbols-outlined text-lg">domain</span></div><input class="block w-full pl-10 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary placeholder-slate-400" placeholder="Clinic / Practice Name" type="text"/></div>
         <textarea class="block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary placeholder-slate-400" placeholder="How would you like to partner with us?" rows="3"></textarea>
-        <button type="button" onclick="submitPartner()" class="w-full bg-primary hover:bg-primary-dark text-black font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2"><span data-i18n="wel.send">Send Partnership Request</span><span class="material-symbols-outlined text-lg">send</span></button>
+        <button type="button" onclick="submitPartner()" class="w-full bg-gradient-to-r from-primary to-warm-coral hover:opacity-90 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2"><span data-i18n="wel.send">Send Partnership Request</span><span class="material-symbols-outlined text-lg">send</span></button>
       </form>
-      <div id="partner-success" class="hidden mt-4 bg-green-50 border border-green-200 rounded-lg p-4 text-center"><span class="material-symbols-outlined text-green-600 text-[32px]">check_circle</span><p class="text-sm font-bold text-green-800 mt-2" data-i18n="wel.sent">Request Sent!</p></div>
+      <div id="partner-success" class="hidden mt-4 bg-warm-sage-light border border-warm-sage/20 rounded-xl p-4 text-center"><span class="material-symbols-outlined text-warm-sage text-[32px]">check_circle</span><p class="text-sm font-extrabold text-emerald-800 mt-2" data-i18n="wel.sent">Request Sent!</p></div>
     </div>
   </section>
 </div>
@@ -687,7 +739,7 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
 <div id="page-contact" class="page">
   <!-- Urgent Banner -->
   <div class="px-4 pt-5 pb-2">
-    <div class="relative overflow-hidden rounded-2xl bg-warm-blue-light border border-warm-blue/20 p-5 shadow-sm">
+    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-warm-coral-light to-warm-blue-light border border-warm-coral/15 p-5 shadow-sm">
       <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-primary/20 blur-2xl"></div>
       <div class="relative z-10 flex flex-col gap-3">
         <div class="flex items-center gap-2 text-red-600"><span class="material-symbols-outlined text-[20px] animate-pulse">emergency</span><span class="text-xs font-bold uppercase tracking-wider" data-i18n="con.urgent">Urgent Care</span></div>
@@ -699,61 +751,61 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
   </div>
   <!-- Quick Actions -->
   <div class="grid grid-cols-3 gap-3 px-4 py-4">
-    <a href="tel:+13606030324" class="flex flex-col items-center justify-center gap-2 rounded-xl bg-white border border-slate-100 p-4 shadow-sm hover:shadow-md transition-all active:scale-95 group">
-      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-black transition-colors"><span class="material-symbols-outlined">call</span></div>
+    <a href="tel:+13606030324" class="flex flex-col items-center justify-center gap-2 rounded-xl bg-white border border-purple-50 p-4 shadow-sm hover:shadow-md transition-all active:scale-95 group">
+      <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-soft text-primary group-hover:bg-primary group-hover:text-white transition-colors"><span class="material-symbols-outlined">call</span></div>
       <span class="text-xs font-semibold text-slate-700" data-i18n="con.call">Call</span>
     </a>
-    <a href="https://wa.me/13606036425?text=Hi%20Dr.%20Mandeep%2C%20I%27d%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex flex-col items-center justify-center gap-2 rounded-xl bg-white border border-slate-100 p-4 shadow-sm hover:shadow-md transition-all active:scale-95 group">
+    <a href="https://wa.me/13606036425?text=Hi%20Dr.%20Mandeep%2C%20I%27d%20like%20to%20inquire%20about%20your%20services." target="_blank" class="flex flex-col items-center justify-center gap-2 rounded-xl bg-white border border-purple-50 p-4 shadow-sm hover:shadow-md transition-all active:scale-95 group">
       <div class="flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366]/10 text-[#25D366] group-hover:bg-[#25D366] group-hover:text-white transition-colors">
         <svg fill="currentColor" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       </div>
       <span class="text-xs font-semibold text-slate-700">WhatsApp</span>
     </a>
-    <a href="mailto:mandeepskaur761@gmail.com" class="flex flex-col items-center justify-center gap-2 rounded-xl bg-white border border-slate-100 p-4 shadow-sm hover:shadow-md transition-all active:scale-95 group">
-      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-warm-blue/10 text-warm-blue group-hover:bg-warm-blue group-hover:text-white transition-colors"><span class="material-symbols-outlined">mail</span></div>
+    <a href="mailto:mandeepskaur761@gmail.com" class="flex flex-col items-center justify-center gap-2 rounded-xl bg-white border border-purple-50 p-4 shadow-sm hover:shadow-md transition-all active:scale-95 group">
+      <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-warm-blue-light text-warm-blue group-hover:bg-warm-blue group-hover:text-white transition-colors"><span class="material-symbols-outlined">mail</span></div>
       <span class="text-xs font-semibold text-slate-700" data-i18n="con.email">Email</span>
     </a>
   </div>
   <!-- Location & Map -->
   <div class="px-4 py-2">
-    <div class="flex flex-col gap-4 rounded-2xl bg-white border border-slate-100 p-4 shadow-sm">
+    <div class="flex flex-col gap-4 rounded-2xl bg-white border border-purple-50 p-4 shadow-sm">
       <div class="flex items-center justify-between">
         <div><h3 class="font-bold text-text-main" data-i18n="con.clinic">Ferndale Clinic</h3><p class="text-xs text-slate-500">2641, Glenmore St., Ferndale, WA 98248, US</p></div>
-        <a href="https://maps.google.com/?q=2641+Glenmore+St,+Ferndale,+WA+98248" target="_blank" rel="noopener noreferrer" class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-primary/20 hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">near_me</span></a>
+        <a href="https://maps.google.com/?q=2641+Glenmore+St,+Ferndale,+WA+98248" target="_blank" rel="noopener noreferrer" class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-primary/15 hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">near_me</span></a>
       </div>
       <a href="https://maps.google.com/?q=2641+Glenmore+St,+Ferndale,+WA+98248" target="_blank" rel="noopener noreferrer" class="relative h-40 w-full overflow-hidden rounded-xl bg-slate-200 block group">
         <img alt="Map of Ferndale WA" class="h-full w-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDotvs_FvIzcb1tdvjNwvoN3HnrGs4_e9khtwa425iEbA1yhlGrVMEAUP9z6sy7dCI74Yti7G2R6rnzRuI_20QawBfCzJvtS3KOsDU0MhyyvMzvpnU3P_wixJVt9xOnYaSCdfeFVqc5-PuCGqEcu3JUmTldmnG_KghUjKT5znS5PgXOrwCFo2Priww8cW_Dfp4yUbrDZmzbL5S1gkCC90vTNNJL0jj5ZNHe_TQJRnj0x0VZisL2qyfFhK8RywuIGzW0czLwU_9I-TY"/>
         <div class="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/20 transition-colors"><span class="flex items-center gap-2 rounded-lg bg-white/90 px-4 py-2 text-xs font-bold text-text-main shadow-sm backdrop-blur-sm"><span class="material-symbols-outlined text-primary text-[18px]">location_on</span><span data-i18n="con.directions">Get Directions</span></span></div>
       </a>
       <div class="space-y-2">
-        <div class="flex items-center justify-between border-b border-slate-50 pb-2"><div class="flex items-center gap-2 text-sm text-slate-600"><span class="material-symbols-outlined text-primary text-[18px]">schedule</span><span data-i18n="con.monfri">Mon - Fri</span></div><span class="text-sm font-medium">10:00 AM - 6:00 PM</span></div>
+        <div class="flex items-center justify-between border-b border-purple-50/50 pb-2"><div class="flex items-center gap-2 text-sm text-slate-600"><span class="material-symbols-outlined text-primary text-[18px]">schedule</span><span data-i18n="con.monfri">Mon - Fri</span></div><span class="text-sm font-medium">10:00 AM - 6:00 PM</span></div>
         <div class="flex items-center justify-between pt-1"><div class="flex items-center gap-2 text-sm text-slate-600"><span class="material-symbols-outlined text-slate-400 text-[18px]">weekend</span><span data-i18n="con.satsun">Sat - Sun</span></div><span class="text-sm font-medium text-slate-400" data-i18n="con.closed">Closed</span></div>
       </div>
     </div>
   </div>
   <!-- Online Appointment Booking -->
   <div class="px-4 py-2">
-    <div class="bg-gradient-to-br from-primary/10 to-emerald-50 rounded-2xl p-5 border border-primary/20">
+    <div class="bg-gradient-to-br from-primary-soft to-warm-sage-light rounded-2xl p-5 border border-primary/10">
       <div class="flex items-center gap-3 mb-3">
-        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary"><span class="material-symbols-outlined">event_available</span></div>
+        <div class="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center text-primary"><span class="material-symbols-outlined">event_available</span></div>
         <div>
           <h3 class="font-bold text-text-main" data-i18n="con.bookonline">Book Appointment Online</h3>
           <p class="text-xs text-slate-500" data-i18n="con.schedule">Schedule at your convenience</p>
         </div>
       </div>
       <div class="grid grid-cols-2 gap-3 mb-4">
-        <div class="bg-white rounded-lg p-3 border border-slate-100 text-center">
+        <div class="bg-white rounded-lg p-3 border border-purple-50 text-center">
           <span class="material-symbols-outlined text-primary text-[24px] mb-1">videocam</span>
           <p class="text-xs font-semibold text-slate-700" data-i18n="con.video">Video Call</p>
           <p class="text-[10px] text-slate-400" data-i18n="con.telehealth">Telehealth</p>
         </div>
-        <div class="bg-white rounded-lg p-3 border border-slate-100 text-center">
+        <div class="bg-white rounded-lg p-3 border border-purple-50 text-center">
           <span class="material-symbols-outlined text-primary text-[24px] mb-1">location_on</span>
           <p class="text-xs font-semibold text-slate-700" data-i18n="con.inperson">In-Person</p>
           <p class="text-[10px] text-slate-400">Ferndale, WA</p>
         </div>
       </div>
-      <a href="https://www.mandeephomeo.com/appointment/" target="_blank" class="block w-full bg-primary hover:bg-primary-dark text-black font-bold py-3 rounded-xl text-sm text-center shadow-md transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+      <a href="https://www.mandeephomeo.com/appointment/" target="_blank" class="block w-full bg-gradient-to-r from-primary to-primary-dark hover:opacity-90 text-white font-bold py-3 rounded-xl text-sm text-center shadow-lg transition-all active:scale-[0.98] flex items-center justify-center gap-2">
         <span class="material-symbols-outlined text-[18px]">calendar_month</span>
         Book Now on Website
       </a>
@@ -800,9 +852,9 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
       <span class="material-symbols-outlined relative z-10 text-slate-500 group-hover:text-white transition-colors">arrow_outward</span>
     </a>
     <!-- Website -->
-    <a class="group flex w-full items-center justify-between rounded-2xl bg-primary/10 border border-primary/20 px-5 py-4 shadow-sm transition-transform active:scale-[0.98]" href="https://www.mandeephomeo.com/" target="_blank">
+    <a class="group flex w-full items-center justify-between rounded-2xl bg-primary-soft border border-primary/10 px-5 py-4 shadow-sm transition-transform active:scale-[0.98]" href="https://www.mandeephomeo.com/" target="_blank">
       <div class="flex items-center gap-3">
-        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 text-primary"><span class="material-symbols-outlined">language</span></div>
+        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary"><span class="material-symbols-outlined">language</span></div>
         <div class="flex flex-col"><span class="text-xs font-medium text-slate-500" data-i18n="con.website">Official Website</span><span class="font-bold text-sm text-text-main">mandeephomeo.com</span></div>
       </div>
       <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_outward</span>
@@ -810,9 +862,9 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
   </div>
   <!-- Contact Form -->
   <div class="px-4 py-2 pb-6">
-    <div class="rounded-2xl bg-white border border-slate-100 p-5 shadow-sm">
+    <div class="rounded-2xl bg-white border border-purple-50 p-5 shadow-sm">
       <div class="mb-5 flex items-center gap-3">
-        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 text-green-700"><span class="material-symbols-outlined">security</span></div>
+        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-soft text-primary"><span class="material-symbols-outlined">security</span></div>
         <div><h3 class="font-bold" data-i18n="con.secure">Secure Inquiry</h3><p class="text-xs text-slate-500" data-i18n="con.hipaa">Encrypted & HIPAA Compliant</p></div>
       </div>
       <form id="contact-form" class="space-y-4">
@@ -822,9 +874,9 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
           <div><label class="mb-1 block text-xs font-semibold text-slate-600">Email</label><input class="w-full rounded-lg border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="jane@email.com" type="email"/></div>
         </div>
         <div><label class="mb-1 block text-xs font-semibold text-slate-600" data-i18n="con.message">Message</label><textarea class="w-full rounded-lg border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary resize-none" placeholder="How can we help you today?" rows="3"></textarea></div>
-        <button type="button" onclick="submitContact()" class="w-full rounded-xl bg-primary py-3 text-sm font-bold text-black shadow-lg shadow-primary/20 hover:bg-green-400 active:scale-[0.99] transition-all" data-i18n="con.send">Send Securely</button>
+        <button type="button" onclick="submitContact()" class="w-full rounded-xl bg-gradient-to-r from-primary to-warm-coral py-3 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:opacity-90 active:scale-[0.99] transition-all" data-i18n="con.send">Send Securely</button>
       </form>
-      <div id="contact-success" class="hidden mt-4 bg-green-50 border border-green-200 rounded-lg p-4 text-center"><span class="material-symbols-outlined text-green-600 text-[32px]">task_alt</span><p class="text-sm font-bold text-green-800 mt-2" data-i18n="con.sent">Message Sent!</p><p class="text-xs text-green-600 mt-1" data-i18n="con.respond">We'll respond within 24 hours.</p></div>
+      <div id="contact-success" class="hidden mt-4 bg-warm-sage-light border border-warm-sage/20 rounded-xl p-4 text-center"><span class="material-symbols-outlined text-warm-sage text-[32px]">task_alt</span><p class="text-sm font-extrabold text-emerald-800 mt-2" data-i18n="con.sent">Message Sent!</p><p class="text-xs text-warm-sage mt-1" data-i18n="con.respond">We'll respond within 24 hours.</p></div>
     </div>
   </div>
 </div>
@@ -832,7 +884,7 @@ input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 
 </main>
 
 <!-- ========== UNIFIED BOTTOM NAV (6 HUBS) ========== -->
-<nav class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md border-t border-gray-100 z-40">
+<nav class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-lg border-t border-purple-50 z-40">
   <div class="flex justify-between items-end pb-4 pt-2 px-2 max-w-lg mx-auto">
     <button onclick="navigateTo('home')" data-page="home" class="nav-btn active flex flex-col items-center gap-1 w-14 text-primary transition-colors">
       <div class="relative"><span class="material-symbols-outlined text-[24px]">home</span><span class="nav-dot absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"></span></div>
@@ -960,7 +1012,7 @@ const i18n = {
   'svc.allages': { en: 'We Treat All Ages', pa: 'ਅਸੀਂ ਸਾਰੇ ਉਮਰ ਦੇ ਲੋਕਾਂ ਦਾ ਇਲਾਜ ਕਰਦੇ ਹਾਂ' },
   'svc.allages.sub': { en: 'Kids, Teens, Adults & Elderly — non-invasive, natural healing for everyone', pa: 'ਬੱਚੇ, ਨੌਜਵਾਨ, ਬਾਲਗ ਅਤੇ ਬਜ਼ੁਰਗ — ਸਭ ਲਈ ਕੁਦਰਤੀ ਇਲਾਜ' },
   // ── RESOURCES / PORTAL PAGE ──
-  'res.progress': { en: 'Daily Progress Log', pa: 'ਰੋਜ਼ਾਨਾ ਤਰੱਕੀ ਲੌਗ' },
+  'res.progress': { en: 'How Are You Feeling?', pa: 'ਤੁਸੀਂ ਕਿਵੇਂ ਮਹਿਸੂਸ ਕਰ ਰਹੇ ਹੋ?' },
   'res.day': { en: 'Day 4 of 15', pa: 'ਦਿਨ 4 / 15' },
   'res.beh': { en: 'Behavioral Calmness', pa: 'ਵਿਵਹਾਰਕ ਸ਼ਾਂਤੀ' },
   'res.restless': { en: 'Restless', pa: 'ਬੇਚੈਨ' },
@@ -971,8 +1023,8 @@ const i18n = {
   'res.hyp': { en: 'Hyperactivity', pa: 'ਹਾਈਪਰਐਕਟੀਵਿਟੀ' },
   'res.veryactive': { en: 'Very Active', pa: 'ਬਹੁਤ ਸਰਗਰਮ' },
   'res.reduced': { en: 'Reduced', pa: 'ਘੱਟ' },
-  'res.log': { en: "Log Today's Entry", pa: 'ਅੱਜ ਦੀ ਐਂਟਰੀ ਲੌਗ ਕਰੋ' },
-  'res.logged': { en: 'Entry Logged!', pa: 'ਐਂਟਰੀ ਲੌਗ ਹੋ ਗਈ!' },
+  'res.log': { en: "Log Today's Check-in", pa: 'ਅੱਜ ਦੀ ਚੈਕ-ਇਨ ਲੌਗ ਕਰੋ' },
+  'res.logged': { en: 'Check-in Complete!', pa: 'ਚੈਕ-ਇਨ ਪੂਰੀ ਹੋ ਗਈ!' },
   'res.review': { en: 'Dr. Mandeep will review your progress.', pa: 'ਡਾ. ਮਨਦੀਪ ਤੁਹਾਡੀ ਤਰੱਕੀ ਦੀ ਸਮੀਖਿਆ ਕਰੇਗੀ।' },
   'res.diet': { en: 'Diet & Lifestyle', pa: 'ਖੁਰਾਕ ਅਤੇ ਜੀਵਨ ਸ਼ੈਲੀ' },
   'res.antiinflam': { en: 'Anti-Inflammatory', pa: 'ਸੋਜ਼ ਵਿਰੋਧੀ' },
@@ -1042,8 +1094,8 @@ const i18n = {
 
 function setLang(lang) {
   currentLang = lang;
-  document.getElementById('btn-en').className = lang === 'en' ? 'px-2.5 text-[11px] font-bold rounded-full bg-white shadow-sm text-text-main h-full flex items-center transition-all' : 'px-2.5 text-[11px] font-medium text-gray-400 h-full flex items-center transition-all';
-  document.getElementById('btn-pa').className = lang === 'pa' ? 'px-2.5 text-[11px] font-bold rounded-full bg-white shadow-sm text-text-main h-full flex items-center transition-all' : 'px-2.5 text-[11px] font-medium text-gray-400 h-full flex items-center transition-all';
+  document.getElementById('btn-en').className = lang === 'en' ? 'px-2.5 text-[11px] font-bold rounded-full bg-white shadow-sm text-text-main h-full flex items-center transition-all' : 'px-2.5 text-[11px] font-medium text-text-sub h-full flex items-center transition-all';
+  document.getElementById('btn-pa').className = lang === 'pa' ? 'px-2.5 text-[11px] font-bold rounded-full bg-white shadow-sm text-text-main h-full flex items-center transition-all' : 'px-2.5 text-[11px] font-medium text-text-sub h-full flex items-center transition-all';
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (i18n[key] && i18n[key][lang]) el.textContent = i18n[key][lang];
